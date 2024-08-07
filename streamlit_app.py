@@ -19,6 +19,6 @@ with st.spinner(text='In progress'):
    st.success('Done')
 
 # Show and update progress bar
- bar = st.progress(50)
- time.sleep(3)
- bar.progress(100)
+bar = st.progress(50)
+time.sleep(3)
+bar.progress(100)
