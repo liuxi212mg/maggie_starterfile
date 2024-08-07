@@ -30,3 +30,6 @@ df = pd.DataFrame(
 )
 
 st.table(df)
+
+text_contents = '''This is some text'''
+st.download_button("Download some text", text_contents)
