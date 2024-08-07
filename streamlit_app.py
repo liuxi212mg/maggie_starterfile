@@ -13,10 +13,6 @@ tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
 tab1.write("this is tab 1")
 tab2.write("this is tab 2")
 
-# Show a spinner during a process
-with st.spinner(text='In progress'):
-     time.sleep(3)
-     st.success('Done')
 
 # Show and update progress bar
 bar = st.progress(50)
