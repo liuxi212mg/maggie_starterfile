@@ -1,8 +1,16 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 
 with open('style.css') as f:
     css = f.read()
-  
+
+df = pd.DataFrame(
+    np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
+)
+
+st.table(df)
+
 st.title('testingmg')
 st.write('Hello world!')
 
