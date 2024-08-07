@@ -43,11 +43,11 @@ th, td {
 }
 
 th {
-    background-color: #ddf1f2;
+    background-color: grey;
     color: white;
     text-align: left;
 }
 
 td:hover {
-    background-color: #ddf1f2;
+    background-color: #ddd;
 }
