@@ -1,6 +1,6 @@
 import streamlit as st
 
-with open('maggie_starterfile/style.css') as f:
+with open('style.css') as f:
     css = f.read()
   
 st.title('testingmg')
