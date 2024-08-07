@@ -7,12 +7,6 @@ with open('style.css') as f:
 
 st.markdown(f"<style>{css}</style>",unsafe_allow_html=True)
 
-df = pd.DataFrame(
-    np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
-)
-
-st.table(df)
-
 st.title('testingmg')
 st.write('Hello world!')
 
@@ -30,3 +24,9 @@ tab2.write("this is tab 2")
 # Show and update progress bar
 bar = st.progress(50)
 bar.progress(100)
+
+df = pd.DataFrame(
+    np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
+)
+
+st.table(df)
