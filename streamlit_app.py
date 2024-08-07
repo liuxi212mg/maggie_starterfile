@@ -5,6 +5,8 @@ import numpy as np
 with open('style.css') as f:
     css = f.read()
 
+st.markdown(f"<style>{css}</style>",unsafe_allow_html=True)
+
 df = pd.DataFrame(
     np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
 )
