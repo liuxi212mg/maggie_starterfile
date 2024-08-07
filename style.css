@@ -42,11 +42,6 @@ th, td {
     border: 1px solid #ddd;
 }
 
-th {
-    background-color: grey;
-    color: white;
-    text-align: left;
-}
 
 td:hover {
     background-color: #ddd;
