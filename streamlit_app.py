@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-with open('style.css') as f:
-    css = f.read()
 page_bg_img = '''
 <style>
 body {
@@ -14,7 +12,7 @@ background-size: cover;
 '''
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-st.markdown(f"<style>{css}</style>",unsafe_allow_html=True)
+
 
 st.title('testingmg')
 st.write('Hello world!')
