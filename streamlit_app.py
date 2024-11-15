@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # List of options (without a default value at the start)
-options = ['Option 1', 'Option 2', 'Option 3', 'Add New Option']
+options = ['+ Add New Option', 'Option 2', 'Option 3', 'Option 4']
 
 # Add a special placeholder value (empty string or None) to simulate the placeholder
 options_with_placeholder = [' '] + options
