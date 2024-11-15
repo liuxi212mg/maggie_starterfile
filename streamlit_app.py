@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Dropdown menu with placeholder option as the first item
-Select a Prompt = ['Select an option below', '+ Add New Prompt', 'A mystical, enchanted forest at dusk, where the trees are ancient and towering, their gnarled branches twisted and covered in moss. The forest floor is blanketed with thick, lush green grass and vibrant wildflowers in shades of purple, blue, and pink. In the distance, a sparkling, winding stream reflects the last light of the setting sun', 'Option 3']
+Select_Prompt = ['Select an option below', '+ Add New Prompt', 'A mystical, enchanted forest at dusk, where the trees are ancient and towering, their gnarled branches twisted and covered in moss. The forest floor is blanketed with thick, lush green grass and vibrant wildflowers in shades of purple, blue, and pink. In the distance, a sparkling, winding stream reflects the last light of the setting sun', 'Option 3']
 selected_option = st.selectbox('Choose an option:', options)
 
 # Handling the placeholder behavior
