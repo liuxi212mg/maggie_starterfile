@@ -42,7 +42,7 @@ options = ['+ Add New Option','Option 1', 'Option 2', 'Option 3']
 selected_option = st.selectbox('Choose an option:', options)
 
 # Input for new options (if "Add New" is selected)
-if selected_option == 'Add New Option':
+if selected_option == '+ Add New Option':
     new_option = st.text_input('Enter a new option:')
     if st.button('Add'):
         if new_option:
