@@ -17,16 +17,6 @@ if selected_option == '+ Add New Option':
             st.error("Please enter a new option.")
 
 
-# Dropdown menu
-option = st.selectbox('Choose an option:', ['Option 1', 'Option 2', 'Option 3'])
-
-# Spacer to make the layout cleaner
-st.write("") 
-
-# Button for the action
-if st.button('Add New Option'):
-    st.write(f'You chose: {option}. Now you can add a new option!')
-
 
 # Dropdown menu with an "Add New Option" choice
 options = ['A mystical, enchanted forest at dusk, where the trees are ancient and towering, their gnarled branches twisted and covered in moss. The forest floor is blanketed with thick, lush green grass and vibrant wildflowers in shades of purple, blue, and pink. In the distance, a sparkling, winding stream reflects the last light of the setting sun', 'Option 2', 'Option 3', 'Add New Option']
