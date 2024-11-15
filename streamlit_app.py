@@ -4,14 +4,19 @@ import numpy as np
 
 import streamlit as st
 
-# List of options, without the placeholder as a dropdown option
-options = ['+ Add New Option''Option 1', 'Option 2', 'Option 3']
+import streamlit as st
 
-# Use a placeholder by setting an empty string as the default value
-selected_option = st.selectbox('Choose an option:', options, index=0)
+# List of options (without a default value at the start)
+options = ['Option 1', 'Option 2', 'Option 3', 'Add New Option']
 
-# Handling placeholder behavior by checking if the first option is selected
-if selected_option == options[0]:
+# Add a special placeholder value (empty string or None) to simulate the placeholder
+options_with_placeholder = ['Select an option'] + options
+
+# Use the selectbox, with 'Select an option' as the placeholder
+selected_option = st.selectbox('Choose an option:', options_with_placeholder)
+
+# Logic to handle when the placeholder is selected
+if selected_option == 'Select an option':
     st.write("Please select a valid option above.")
 elif selected_option == 'Add New Option':
     new_item = st.text_input("Enter a new item:")
@@ -22,4 +27,5 @@ elif selected_option == 'Add New Option':
             st.error("Please enter a new item.")
 else:
     st.write(f'You selected: {selected_option}')
+
 
