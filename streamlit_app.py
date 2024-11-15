@@ -14,7 +14,7 @@ selected_option = st.selectbox('Choose an option:', options_with_placeholder)
 # Logic to handle when the placeholder is selected
 if selected_option == 'Select an option':
     st.write("Please select a valid option above.")
-elif selected_option == 'Add New Option':
+elif selected_option == '+ Add New Option':
     new_item = st.text_input("Enter a new item:")
     if st.button('Add New Item'):
         if new_item:
