@@ -38,7 +38,7 @@ st.download_button("Download some text", text_contents)
 
 
 # Dropdown selection
-options = ['Option 1', 'Option 2', 'Option 3','Add New Option']
+options = ['+ Add New Option','Option 1', 'Option 2', 'Option 3']
 selected_option = st.selectbox('Choose an option:', options)
 
 # Input for new options (if "Add New" is selected)
