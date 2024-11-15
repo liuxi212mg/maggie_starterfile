@@ -2,15 +2,11 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-import streamlit as st
-
-import streamlit as st
-
 # List of options (without a default value at the start)
 options = ['Option 1', 'Option 2', 'Option 3', 'Add New Option']
 
 # Add a special placeholder value (empty string or None) to simulate the placeholder
-options_with_placeholder = ['Select an option'] + options
+options_with_placeholder = [' '] + options
 
 # Use the selectbox, with 'Select an option' as the placeholder
 selected_option = st.selectbox('Choose an option:', options_with_placeholder)
