@@ -9,7 +9,7 @@ selected_option = st.selectbox('Choose an option:', options)
 # Handling the placeholder behavior
 if selected_option == 'Select an option':
     st.write("Please select an option above.")
-elif selected_option == 'Add New Option':
+elif selected_option == '+ Add New Prompt':
     new_item = st.text_input("Enter a new item:")
     if st.button('Add New Item'):
         if new_item:
