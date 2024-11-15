@@ -8,7 +8,7 @@ selected_option = st.selectbox('Choose an option:', options)
 
 if selected_option == 'Add New Option':
     new_item = st.text_input("Enter a new item:")
-    if st.button('Add New Item'):
+    if st.button('+ Add New Option'):
         if new_item:
             st.success(f"New item '{new_item}' added!")
         else:
