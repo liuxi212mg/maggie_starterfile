@@ -1,17 +1,9 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 
-# List of options (without a default value at the start)
 options = ['+ Add New Option', 'Option 2', 'Option 3', 'Option 4']
-
-# Add a special placeholder value (empty string or None) to simulate the placeholder
 options_with_placeholder = ['Select an option'] + options
-
-# Use the selectbox, with 'Select an option' as the placeholder
 selected_option = st.selectbox('Choose an option:', options_with_placeholder)
 
-# Logic to handle when the placeholder is selected
 if selected_option == 'Select an option':
     st.write("Please select a valid option above.")
 elif selected_option == '+ Add New Option':
