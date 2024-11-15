@@ -5,7 +5,7 @@ import numpy as np
 import streamlit as st
 
 # List of options, without the placeholder as a dropdown option
-options = ['Option 1', 'Option 2', 'Option 3', 'Add New Option']
+options = ['+ Add New Option''Option 1', 'Option 2', 'Option 3']
 
 # Use a placeholder by setting an empty string as the default value
 selected_option = st.selectbox('Choose an option:', options, index=0)
