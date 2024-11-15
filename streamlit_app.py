@@ -35,3 +35,18 @@ st.table(df)
 
 text_contents = '''This is some text'''
 st.download_button("Download some text", text_contents)
+
+
+# Dropdown selection
+options = ['Option 1', 'Option 2', 'Option 3']
+selected_option = st.selectbox('Choose an option:', options)
+
+# Input for new options (if "Add New" is selected)
+if selected_option == 'Add New Option':
+    new_option = st.text_input('Enter a new option:')
+    if st.button('Add'):
+        if new_option:
+            options.append(new_option)
+            st.success(f"New option '{new_option}' added!")
+        else:
+            st.error("Please enter a new option.")
