@@ -26,3 +26,18 @@ st.write("")
 # Button for the action
 if st.button('Add New Option'):
     st.write(f'You chose: {option}. Now you can add a new option!')
+
+
+# Dropdown menu with an "Add New Option" choice
+options = ['Option 1', 'Option 2', 'Option 3', 'Add New Option']
+selected_option = st.selectbox('Choose an option:', options)
+
+if selected_option == 'Add New Option':
+    new_item = st.text_input("Enter a new item:")
+    if st.button('Add New Item'):
+        if new_item:
+            st.success(f"New item '{new_item}' added!")
+        else:
+            st.error("Please enter a new item.")
+else:
+    st.write(f'You selected: {selected_option}')
