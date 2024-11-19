@@ -48,4 +48,8 @@ options = st.multiselect(
 
 st.write("You selected:", options)
 
-category = pills(    "Category",    list(CATEGORY_NAMES.keys()),    CATEGORY_ICONS,    index=None,    format_func=lambda x: CATEGORY_NAMES.get(x, x),    label_visibility="collapsed",)
+import streamlit as st
+
+options = ["North", "East", "South", "West"]
+selection = st.pills("Directions", options, selection_mode="single")
+st.markdown(f"Your selected options: {selection}.")
