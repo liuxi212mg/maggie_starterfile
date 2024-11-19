@@ -40,3 +40,11 @@ if selected_option == 'Add New Option':
 else:
     st.write(f'You selected: {selected_option}')
 
+# test for multiselect
+
+st.multiselect(
+  'Select Prompt(s) *',
+  ['+ Add New Prompt','Bullet Point Summary','Regional Focus','Expected Returns','Contact Information','Trends'],
+  ['Performance Summary','Overall Sentiment']
+)
+
