@@ -53,3 +53,11 @@ import streamlit as st
 options = ["Art Collection at 160 Front-6689340", "Investment Risk Report_Board_20241007 - FSRA_v3 ", "ChatGPT Interfaces - Compliance Info Display Mockups", "cute cute cute cat"]
 selection = st.pills("Directions", options, selection_mode="single")
 st.markdown(f"Your selected options: {selection}.")
+
+import streamlit as st
+
+options = ["Art Collection at 160 Front-6689340", "Investment Risk Report_Board_20241007 - FSRA_v3 ", "ChatGPT Interfaces - Compliance Info Display Mockups", "cute cute cute cat"]
+selection = st.segmented_control(
+    "Directions", options, selection_mode="multi"
+)
+st.markdown(f"Your selected options: {selection}.")
