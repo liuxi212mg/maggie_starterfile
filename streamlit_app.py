@@ -48,6 +48,4 @@ options = st.multiselect(
 
 st.write("You selected:", options)
 
-tab1, tab2, tab3 = st.tabs(["Dax Reference Cheat Sheet - MAR2023", "Art Collection at 160 Front-6689340", "(Read Only) Mandatory pop-up window","ChatGPT Interface - Compliance Info Display Mockups"])
-
 category = pills(    "Category",    list(CATEGORY_NAMES.keys()),    CATEGORY_ICONS,    index=None,    format_func=lambda x: CATEGORY_NAMES.get(x, x),    label_visibility="collapsed",)
