@@ -40,8 +40,6 @@ if selected_option == 'Add New Option':
 else:
     st.write(f'You selected: {selected_option}')
 
-import streamlit as st
-
 options = st.multiselect(
     "What are your favorite colors",
     ["Green", "Yellow", "Red", "Blue"],
