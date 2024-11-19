@@ -40,12 +40,13 @@ if selected_option == 'Add New Option':
 else:
     st.write(f'You selected: {selected_option}')
 
+import streamlit as st
+
 options = st.multiselect(
-  'Select Prompt(s) *',
-  ['+ Add New Prompt','Bullet Point Summary','Regional Focus','Expected Returns','Contact Information','Trends'],
-  ['Performance Summary','Overall Sentiment']
+    "What are your favorite colors",
+    ["Green", "Yellow", "Red", "Blue"],
+    ["Yellow", "Red"],
 )
 
 st.write("You selected:", options)
-
 
