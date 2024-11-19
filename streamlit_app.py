@@ -61,3 +61,32 @@ selection = st.segmented_control(
     "Directions", options, selection_mode="single"
 )
 st.markdown(f"Your selected options: {selection}.")
+
+import random
+import pandas as pd
+import streamlit as st
+
+df = pd.DataFrame(
+    {
+        "name": ["Imagine you are a data analyst working in Ontario Teachers'' Pension Plan and want to get a quick summary of the document. You wish to know what the date difference what''s the major product difference what is the price difference who is responsible for this project and does that change over time. If yes who is the latest one. Also what is the currency for the invoice and how the service provided differ between different project. You might want to present it to the senior leadership so please keep it concise and professional. Instead of table or column for one-to-one comparison you wish to have a summary paragraph that includes all the information mentioned above. For the other irrelevant information you also want to keep that in the conversation so you didn''t miss anything important.", "Extras", "Issues"],
+        "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
+        "stars": [random.randint(0, 1000) for _ in range(3)],
+        "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],
+    }
+)
+st.dataframe(
+    df,
+    column_config={
+        "name": "App name",
+        "stars": st.column_config.NumberColumn(
+            "Github Stars",
+            help="Number of stars on GitHub",
+            format="%d ⭐",
+        ),
+        "url": st.column_config.LinkColumn("App URL"),
+        "views_history": st.column_config.LineChartColumn(
+            "Views (past 30 days)", y_min=0, y_max=5000
+        ),
+    },
+    hide_index=True,
+)
