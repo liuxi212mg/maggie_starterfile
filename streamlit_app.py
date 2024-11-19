@@ -41,10 +41,14 @@ else:
     st.write(f'You selected: {selected_option}')
 
 # test for multiselect
+import streamlit as st
 
-st.multiselect(
+options = st.multiselect(
   'Select Prompt(s) *',
   ['+ Add New Prompt','Bullet Point Summary','Regional Focus','Expected Returns','Contact Information','Trends'],
   ['Performance Summary','Overall Sentiment']
 )
+
+st.write("You selected:", options)
+
 
