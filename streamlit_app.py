@@ -48,6 +48,6 @@ options = st.multiselect(
 
 st.write("You selected:", options)
 
-tab1, tab2, tab3 = st.tabs(["Dax Reference Cheat Sheet - MAR2023", "Art Collection at 160 Front-6689340", "ChatGPT Interfaces - Compliance Info Display Mockups","ChatGPT Interface - Compliance Info Display Mockups"])
+tab1, tab2, tab3 = st.tabs(["Dax Reference Cheat Sheet - MAR2023", "Art Collection at 160 Front-6689340", "ChatGPT Interfaces - Compliance Info","ChatGPT Interface - Compliance Info Display Mockups"])
 
 
