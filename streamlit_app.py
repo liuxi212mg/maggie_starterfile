@@ -234,14 +234,14 @@ genre = st.sidebar.radio(
     "Model Choice",
     ["GPT-4o", "GPT-4o mini", "GPT-4","GPT-4 32K", "GPT-3.5 Turbo","GPT-3.5 Turbo 16K","o1-preview","o1-mini"],
     captions=[
-        "Enhanced model for complex, multi-step tasks",
-        "Small version with faster responses with lower resource use",
-        "Optimized model for tasks requiring deep understanding and creativity.",
-        "Optimized for handling extensive context and large document processing.",
-        "Fast and efficient model for simple tasks and quick solution.",
-        "A variant of GPT-3.5 Turbo with extended context handling.",
-        "Advanced model designed for complex tasks with broad world knowledge.",
-        "A faster and cost-effective variant offering efficient reasoning with less emphasis on world knowledge."
+        "High-performance for complex tasks",
+        "Faster, lightweight GPT-4o version",
+        "Deep understanding and creativity",
+        "Handles large context and documents",
+        "Fast for simple tasks",
+        "Extended context handling variant",
+        "Advanced, broad world knowledge model",
+        "Faster, cost-effective reasoning model"
     ],
 )
 
