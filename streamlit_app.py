@@ -234,8 +234,8 @@ genre = st.sidebar.radio(
     "Model Choice",
     ["GPT-4o", "GPT-4o mini", "GPT-4","GPT-4 32K", "GPT-3.5 Turbo","GPT-3.5 Turbo 16K","o1-preview","o1-mini"],
     captions=[
-        "Enhanced performance model for complex, multi-step tasks",
-        "Lightweight version of GPT-4o, offering faster responses with lower resource use",
+        "Enhanced model for complex, multi-step tasks",
+        "Small version with faster responses with lower resource use",
         "Optimized model for tasks requiring deep understanding and creativity.",
         "Optimized for handling extensive context and large document processing.",
         "Fast and efficient model for simple tasks and quick solution.",
