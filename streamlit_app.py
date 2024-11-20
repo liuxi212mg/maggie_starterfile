@@ -68,8 +68,7 @@ st.markdown(f'''
 options = [
     ("Option 1", "This is a detailed description of Option 1. It includes extra information about this choice."),
     ("Option 2", "Here is Option 2. This one has some important details too, explaining why it's a great choice."),
-    ("Option 3", "Option 3 has its own unique benefits. Here is a brief summary of what this option offers."),
-    ("Add New Option", "You can add a new option to the list by selecting this choice.")
+    ("Option 3", "Option 3 has its own unique benefits. Here is a brief summary of what this option offers.")
 ]
 
 # Extract the labels and descriptions separately
