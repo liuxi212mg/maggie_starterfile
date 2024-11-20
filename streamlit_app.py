@@ -232,14 +232,8 @@ st.markdown(dropdown_html, unsafe_allow_html=True)
 
 import streamlit as st
 
-# Add the radio button to the sidebar
-genre = st.sidebar.radio(
-    "Model Choice",
-    ["GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"],
-)
-
-# Define captions for each option
-captions = {
+# Create a dictionary with model names as keys and their descriptions as values
+descriptions = {
     "GPT-4o": "Enhanced performance model for complex, multi-step tasks",
     "GPT-4o mini": "Lightweight version of GPT-4o, offering faster responses with lower resource use",
     "GPT-4": "Optimized model for tasks requiring deep understanding and creativity.",
@@ -250,9 +244,16 @@ captions = {
     "o1-mini": "A faster and cost-effective variant offering efficient reasoning with less emphasis on world knowledge."
 }
 
-# Show the caption based on the selected model
-selected_caption = captions.get(genre, "Select a model to see details.")
-st.sidebar.markdown(f"### Model Description:\n{selected_caption}")
+# Create the radio buttons in the sidebar
+genre = st.sidebar.radio(
+    "Model Choice",
+    list(descriptions.keys())  # Use the keys of the dictionary as options
+)
+
+# Display the description under the selected option
+st.sidebar.markdown(f"### Description:\n{descriptions[genre]}")
+
+
 
 
 
