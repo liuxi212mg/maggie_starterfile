@@ -232,20 +232,28 @@ st.markdown(dropdown_html, unsafe_allow_html=True)
 
 import streamlit as st
 
-genre = st.radio(
+# Add the radio button to the sidebar
+genre = st.sidebar.radio(
     "Model Choice",
-    ["GPT-4o", "GPT-4o mini", "GPT-4","GPT-4 32K", "GPT-3.5 Turbo","GPT-3.5 Turbo 16K","o1-preview","o1-mini"],
-    captions=[
-        "Enhanced performance model for complex, multi-step tasks",
-        "Lightweight version of GPT-4o, offering faster responses with lower resource use",
-        "Optimized model for tasks requiring deep understanding and creativity.",
-        "Optimized for handling extensive context and large document processing.",
-        "Fast and efficient model for simple tasks and quick solution.",
-        "A variant of GPT-3.5 Turbo with extended context handling.",
-        "Advanced model designed for complex tasks with broad world knowledge.",
-        "A faster and cost-effective variant offering efficient reasoning with less emphasis on world knowledge."
-    ],
+    ["GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"],
 )
+
+# Define captions for each option
+captions = {
+    "GPT-4o": "Enhanced performance model for complex, multi-step tasks",
+    "GPT-4o mini": "Lightweight version of GPT-4o, offering faster responses with lower resource use",
+    "GPT-4": "Optimized model for tasks requiring deep understanding and creativity.",
+    "GPT-4 32K": "Optimized for handling extensive context and large document processing.",
+    "GPT-3.5 Turbo": "Fast and efficient model for simple tasks and quick solution.",
+    "GPT-3.5 Turbo 16K": "A variant of GPT-3.5 Turbo with extended context handling.",
+    "o1-preview": "Advanced model designed for complex tasks with broad world knowledge.",
+    "o1-mini": "A faster and cost-effective variant offering efficient reasoning with less emphasis on world knowledge."
+}
+
+# Show the caption based on the selected model
+selected_caption = captions.get(genre, "Select a model to see details.")
+st.sidebar.markdown(f"### Model Description:\n{selected_caption}")
+
 
 
 
