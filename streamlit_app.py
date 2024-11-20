@@ -247,55 +247,10 @@ genre = st.sidebar.radio(
 
 import streamlit as st
 
-# Radio button options
-options = [
-    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", 
-    "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
-]
+# Using st.tooltip for a different widget (e.g., button)
+if st.button("Learn More", help="Click this button for more information about the model."):
+    st.write("Here's more information about the model.")
 
-# Captions/Descriptions for each radio button option
-descriptions = {
-    "GPT-4o": "Enhanced performance model for complex, multi-step tasks",
-    "GPT-4o mini": "Lightweight version of GPT-4o, offering faster responses with lower resource use",
-    "GPT-4": "Optimized model for tasks requiring deep understanding and creativity.",
-    "GPT-4 32K": "Optimized for handling extensive context and large document processing.",
-    "GPT-3.5 Turbo": "Fast and efficient model for simple tasks and quick solution.",
-    "GPT-3.5 Turbo 16K": "A variant of GPT-3.5 Turbo with extended context handling.",
-    "o1-preview": "Advanced model designed for complex tasks with broad world knowledge.",
-    "o1-mini": "A faster and cost-effective variant offering efficient reasoning with less emphasis on world knowledge."
-}
-
-# Radio button selection
-selected_option = st.sidebar.radio("Model Choice", options)
-
-# HTML and JavaScript code for tooltips
-tooltip_html = f"""
-<div style="position: relative; display: inline-block; margin-bottom: 10px;">
-    <label style="background-color: #4CAF50; color: white; padding: 10px; cursor: pointer;">
-        {selected_option}
-    </label>
-    <div style="visibility: hidden; background-color: black; color: white; text-align: center; 
-                border-radius: 5px; padding: 5px 0; position: absolute; z-index: 1; bottom: 125%; left: 50%; 
-                margin-left: -60px; opacity: 0; transition: opacity 0.3s;">
-        {descriptions[selected_option]}
-    </div>
-</div>
-<script>
-    const label = document.querySelector('label');
-    const tooltip = document.querySelector('div[style="visibility: hidden;"]');
-    label.addEventListener('mouseenter', () => {{
-        tooltip.style.visibility = 'visible';
-        tooltip.style.opacity = 1;
-    }});
-    label.addEventListener('mouseleave', () => {{
-        tooltip.style.visibility = 'hidden';
-        tooltip.style.opacity = 0;
-    }});
-</script>
-"""
-
-# Display the radio button widget
-st.sidebar.markdown(tooltip_html, unsafe_allow_html=True)
 
 
 
