@@ -247,11 +247,6 @@ genre = st.radio(
     ],
 )
 
-if genre == ":rainbow[Comedy]":
-    st.write("You selected comedy.")
-else:
-    st.write("You didn't select comedy.")
-
 
 
 
