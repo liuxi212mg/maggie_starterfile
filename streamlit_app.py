@@ -296,3 +296,33 @@ with st.sidebar.expander("Select Model (Click to Expand/Collapse)"):
     )
 
 
+import streamlit as st
+
+# Descriptions for each model
+descriptions = {
+    "GPT-4o": "High-performance for complex tasks",
+    "GPT-4o mini": "Faster, lightweight GPT-4o version",
+    "GPT-4": "Deep understanding and creativity",
+    "GPT-4 32K": "Handles large context and documents",
+    "GPT-3.5 Turbo": "Fast for simple tasks",
+    "GPT-3.5 Turbo 16K": "Extended context handling variant",
+    "o1-preview": "Advanced, broad world knowledge model",
+    "o1-mini": "Faster, cost-effective reasoning model"
+}
+
+# Create an expander container for the radio button menu
+with st.sidebar.expander("Select Model (Click to Expand/Collapse)"):
+    # Display the models with their descriptions and a radio button
+    options = list(descriptions.keys())
+    
+    # Create a list of model names and captions
+    selected_option = None
+    for i, model in enumerate(options):
+        # Display the model name and description below it
+        selected_option = st.radio(
+            "Model Choice",
+            options,
+            index=i if selected_option == model else None,
+            key=f"radio_{i}"
+        )
+        st.sidebar.markdown(f"**{model}:** {descriptions[model]}")
