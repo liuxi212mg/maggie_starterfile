@@ -130,6 +130,105 @@ for i, label in enumerate(labels):
     ''', unsafe_allow_html=True)
 
 
+import streamlit as st
+
+# Custom HTML and CSS for the Dropdown Menu and Tooltips
+dropdown_html = """
+    <style>
+        /* Styling the dropdown button */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Dropdown menu style */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Style for each item in the dropdown */
+        .dropdown-item {
+            padding: 12px 16px;
+            display: block;
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
+
+        /* Tooltip styling */
+        .tooltip {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%; /* Position the tooltip above */
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .dropdown-item:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+
+    <div class="dropdown">
+        <button class="dropdown-button">Select an option</button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">
+                Option 1
+                <span class="tooltip">Explanation for Option 1</span>
+            </a>
+            <a href="#" class="dropdown-item">
+                Option 2
+                <span class="tooltip">Explanation for Option 2</span>
+            </a>
+            <a href="#" class="dropdown-item">
+                Option 3
+                <span class="tooltip">Explanation for Option 3</span>
+            </a>
+            <a href="#" class="dropdown-item">
+                Option 4
+                <span class="tooltip">Explanation for Option 4</span>
+            </a>
+        </div>
+    </div>
+"""
+
+# Display the HTML in Streamlit
+st.markdown(dropdown_html, unsafe_allow_html=True)
+
+# You can also add other Streamlit widgets below, such as:
+# st.write("Some other content")
 
 
 
