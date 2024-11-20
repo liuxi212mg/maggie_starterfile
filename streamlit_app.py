@@ -50,6 +50,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+
+
 # Tooltip display for options
 st.markdown(f'''
     <div class="hover-text">
@@ -58,7 +60,9 @@ st.markdown(f'''
     </div>
 ''', unsafe_allow_html=True)
 
-import streamlit as st
+
+
+
 
 # Define the options for the selectbox with longer descriptions
 options = [
@@ -126,9 +130,7 @@ for i, label in enumerate(labels):
         </div>
     ''', unsafe_allow_html=True)
 
-# Display the selected option and its description
-st.write(f"You selected: {selected_option}")
-st.write(f"Description: {descriptions[selected_option]}")
+
 
 
 
