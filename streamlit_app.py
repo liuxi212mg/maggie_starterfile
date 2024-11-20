@@ -101,4 +101,41 @@ selected_option = st.selectbox("Choose an option", options)
 # Display some text
 st.write(f"You selected: {selected_option}")
 
+# Add custom CSS for hover effect
+st.markdown("""
+    <style>
+        .hover-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-text .tooltip {
+            visibility: hidden;
+            width: 150px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -75px;
+        }
+
+        .hover-text:hover .tooltip {
+            visibility: visible;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Tooltip display for options
+st.markdown(f'''
+    <div class="hover-text">
+        Hover over this text to see the tooltip!
+        <span class="tooltip">This is a tooltip!</span>
+    </div>
+''', unsafe_allow_html=True)
+
 
