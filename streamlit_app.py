@@ -281,7 +281,7 @@ selected_model = st.sidebar.selectbox(
 
 import streamlit as st
 
-# Sidebar layout for model selection
+# Sidebar header for model selection
 st.sidebar.header("Choose a Language Model")
 
 # Define the model options and descriptions
@@ -301,19 +301,28 @@ descriptions = {
     "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
-# Add a description for the entire dropdown menu (tooltip for the model selection)
-selected_model = st.sidebar.radio(
-    "Select a Model",
-    models,
-    help="Hover over the model options to read a brief description of each model."
+# Create HTML content for the dropdown with tooltips
+model_tooltips_html = ""
+for model in models:
+    model_tooltips_html += f'<p title="{descriptions[model]}"><button style="width: 100%; text-align: left;">{model}</button></p>'
+
+# Display the HTML as clickable options with hover descriptions
+st.sidebar.markdown(f"""
+    <div>
+        <p><strong>Select a model from below:</strong></p>
+        {model_tooltips_html}
+    </div>
+""", unsafe_allow_html=True)
+
+# Use selectbox to allow model selection
+selected_model = st.sidebar.selectbox(
+    "Choose a Model",
+    models
 )
 
-# Display the description dynamically based on selected model
-st.sidebar.write(f"### Description for {selected_model}")
-st.sidebar.write(descriptions[selected_model])
-
-# Display the selected model in the main content area
+# Display selected model in the main content area
 st.write(f"You selected the model: **{selected_model}**")
+
 
 
 
