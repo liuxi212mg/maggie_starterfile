@@ -354,8 +354,8 @@ with st.sidebar:
 import streamlit as st
 
 # Original help text with line breaks
-help_txt = '''This is a line
-And this follows a line break'''
+help_txt = '''GPT-4o: High-performance for complex tasks.
+GPT-4: Deep understanding and creativity for diverse tasks.'''
 
 # Place everything inside the sidebar
 with st.sidebar:
