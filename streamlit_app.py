@@ -281,7 +281,7 @@ selected_model = st.sidebar.selectbox(
 
 import streamlit as st
 
-# Sidebar layout for model selection
+# Sidebar header for model selection
 st.sidebar.header("Choose a Language Model")
 
 # Define the model options and descriptions
@@ -301,27 +301,33 @@ descriptions = {
     "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
-# Function to display model descriptions with hover tooltip using HTML
-def show_model_descriptions():
-    html = ""
+# Create a dictionary to keep track of the selected model
+selected_model = st.sidebar.radio(
+    "Select a Model",
+    models,
+    help="Select a model to get its description."
+)
+
+# Display selected model description in the sidebar
+st.sidebar.write(f"**Selected Model**: {selected_model}")
+st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
+
+# Function to create a clickable button for each model with a tooltip-like effect
+def show_model_buttons_with_tooltips():
     for model in models:
-        html += f"""
+        button_html = f"""
         <button onclick="document.getElementById('selected-model').innerHTML = '{model}'" 
                 style="width: 100%; padding: 10px; text-align: left; margin-bottom: 5px; 
                 background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;">
             {model}
         </button>
-        <span style="visibility: hidden;" title="{descriptions[model]}" />
+        <span style="visibility: hidden;" title="{descriptions[model]}"></span>
         """
-    st.markdown(html, unsafe_allow_html=True)
+        st.sidebar.markdown(button_html, unsafe_allow_html=True)
 
-# Display clickable buttons with descriptions
-show_model_descriptions()
+# Show the clickable model buttons with descriptions as tooltips
+show_model_buttons_with_tooltips()
 
-# Display selected model description
-selected_model = st.selectbox("Select a Model", models)
-st.write(f"**Selected Model**: {selected_model}")
-st.write(f"**Description**: {descriptions[selected_model]}")
 
 
 
