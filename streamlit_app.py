@@ -353,9 +353,20 @@ with st.sidebar:
 
 import streamlit as st
 
-# Original help text with line breaks
+# Expanded help text with more model descriptions
 help_txt = '''GPT-4o: High-performance for complex tasks.
-GPT-4: Deep understanding and creativity for diverse tasks.'''
+GPT-4: Deep understanding and creativity for diverse tasks.
+GPT-4 32K: Handles large context and documents (32K token limit).
+GPT-3.5 Turbo: Fast for simpler tasks with good performance.
+GPT-3.5 Turbo 16K: Extended context handling variant (16K token limit).
+o1-preview: Advanced, broad world knowledge model for general reasoning.
+o1-mini: Faster, cost-effective reasoning model for simpler tasks.'''
+
+# List of models for the selectbox
+models = [
+    "GPT-4o", "GPT-4", "GPT-4 32K", "GPT-3.5 Turbo", 
+    "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
+]
 
 # Place everything inside the sidebar
 with st.sidebar:
@@ -368,9 +379,10 @@ with st.sidebar:
     new_line = '\n'
     mod_help_txt = help_txt.replace(new_line, '  ' + new_line)  # Adds extra spaces before line breaks
 
+    # Create a selectbox with the expanded help content
+    selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
 
-    # Create a number input with the modified help text as the tooltip
-    st.selectbox("Select a Model", models, help=mod_help_txt)
+
 
 
 
