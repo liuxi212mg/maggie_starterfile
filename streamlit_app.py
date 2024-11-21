@@ -336,10 +336,8 @@ with st.sidebar:
         models,
         help=help_content  # Display all descriptions in the help tooltip
     )
-    
-    # Add message for FAQs link
-    st.markdown("---")  # Horizontal line separator
-    st.markdown("### Visit the [FAQs](https://your-faq-link.com) to view full description of more language models.")
+
+st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> to view full description of more language models.</p>', unsafe_allow_html=True)
 
 
 
