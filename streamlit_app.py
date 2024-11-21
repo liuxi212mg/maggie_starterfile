@@ -370,7 +370,7 @@ with st.sidebar:
 
 
     # Create a number input with the modified help text as the tooltip
-    st.selectbox("Select a Model, models, help=mod_help_txt)
+    st.selectbox("Select a Model", models, help=mod_help_txt)
 
 
 
