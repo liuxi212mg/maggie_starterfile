@@ -230,22 +230,6 @@ st.markdown(dropdown_html, unsafe_allow_html=True)
 # You can also add other Streamlit widgets below, such as:
 # st.write("Some other content")
 
-genre = st.sidebar.radio(
-    "Model Choice",
-    ["GPT-4o", "GPT-4o mini", "GPT-4","GPT-4 32K", "GPT-3.5 Turbo","GPT-3.5 Turbo 16K","o1-preview","o1-mini"],
-    captions=[
-        "High-performance for complex tasks",
-        "Faster, lightweight GPT-4o version",
-        "Deep understanding and creativity",
-        "Handles large context and documents",
-        "Fast for simple tasks",
-        "Extended context handling variant",
-        "Advanced, broad world knowledge model",
-        "Faster, cost-effective reasoning model"
-    ],
-)
-
-
 import streamlit as st
 
 # Create an expander to contain the radio button widget
@@ -264,6 +248,7 @@ with st.expander("Choose Model Type"):
             "Faster, cost-effective reasoning model"
         ],
     )
+
 
 
 
