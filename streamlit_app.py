@@ -279,6 +279,62 @@ selected_model = st.sidebar.selectbox(
     models
 )
 
+import streamlit as st
+
+# Sidebar header for model selection
+st.sidebar.header("Choose a Language Model")
+
+# Define the model options and descriptions
+models = [
+    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", 
+    "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
+]
+
+descriptions = {
+    "GPT-4o": "High-performance for complex tasks.",
+    "GPT-4o mini": "Faster, lightweight GPT-4o version for quicker responses.",
+    "GPT-4": "Deep understanding and creativity for diverse tasks.",
+    "GPT-4 32K": "Handles large context and documents (32K token limit).",
+    "GPT-3.5 Turbo": "Fast for simpler tasks with good performance.",
+    "GPT-3.5 Turbo 16K": "Extended context handling variant (16K token limit).",
+    "o1-preview": "Advanced, broad world knowledge model for general reasoning.",
+    "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
+}
+
+# Function to create a custom dropdown with tooltips
+def custom_dropdown_with_tooltips():
+    # HTML for the custom dropdown
+    options_html = ""
+    for model in models:
+        # Each option in the dropdown will have a tooltip with the description
+        options_html += f"""
+        <div class="dropdown-option" title="{descriptions[model]}">
+            {model}
+        </div>
+        """
+    
+    # Display the custom dropdown in Streamlit using raw HTML
+    st.markdown(f"""
+    <div class="dropdown-container">
+        <label for="model">Select a Model:</label>
+        <select id="model" name="model">
+            {options_html}
+        </select>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Display custom dropdown with tooltips
+custom_dropdown_with_tooltips()
+
+# Allow model selection with selectbox for actual use
+selected_model = st.sidebar.selectbox(
+    "Select a Model",
+    models
+)
+
+# Display the description of the selected model in the sidebar
+st.sidebar.write(f"**Selected Model**: {selected_model}")
+st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
 
 
 
