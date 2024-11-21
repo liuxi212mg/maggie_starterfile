@@ -251,7 +251,7 @@ with st.expander("Choose Model Type"):
 
 import streamlit as st
 
-# Sidebar layout with model descriptions and dropdown menu for selection
+# Sidebar layout with expander for model descriptions and dropdown menu for selection
 st.sidebar.header("Choose a Language Model")
 
 # Define the model options and descriptions
@@ -271,10 +271,10 @@ descriptions = {
     "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
-# Display the descriptions for all models in the sidebar
-st.sidebar.subheader("Model Descriptions")
-for model in models:
-    st.sidebar.write(f"**{model}**: {descriptions[model]}")
+# Create an expander to hold the model descriptions
+with st.sidebar.expander("Model Descriptions"):
+    for model in models:
+        st.write(f"**{model}**: {descriptions[model]}")
 
 # Dropdown menu for model selection
 selected_model = st.sidebar.selectbox(
@@ -284,6 +284,7 @@ selected_model = st.sidebar.selectbox(
 
 # Display the selected model in the main content area
 st.write(f"You selected the model: **{selected_model}**")
+
 
 
 
