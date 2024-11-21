@@ -341,14 +341,14 @@ with st.sidebar:
 
 import streamlit as st
 
-# Display the link using st.markdown
-st.sidebar.markdown("Visit the [FAQs](https://your-faq-link.com) to view a full description of more language models.")
+with st.sidebar:
+    # Use the `st.selectbox` widget with the concatenated help content
+    selected_model = st.selectbox(
+        "Select a Model",
+        models,
+        help="Visit the <a href='https://your-faq-link.com' target='_blank'>FAQs</a> to view a full description of more language models.",  # Display the link in the help tooltip
+    )
 
-# Use the `st.selectbox` widget
-selected_model = st.sidebar.selectbox(
-    "Select a Model",
-    models,
-)
 
 
 
