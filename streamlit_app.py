@@ -301,16 +301,16 @@ descriptions = {
 # Create the help tooltip by concatenating all descriptions, ensuring each is on a new line
 help_content = "\n".join([f"**{model}:** {descriptions[model]}" for model in models])
 
-# Use the `st.selectbox` widget with the concatenated help content
-selected_model = st.selectbox(
-    "Select a Model",
-    models,
-    help=help_content  # Display all descriptions in the help tooltip
-)
+# Move the selectbox and description display to the sidebar
+with st.sidebar:
+    # Use the `st.selectbox` widget with the concatenated help content
+    selected_model = st.selectbox(
+        "Select a Model",
+        models,
+        help=help_content  # Display all descriptions in the help tooltip
+    )
 
-# Display the description of the selected model below the selectbox
-st.write(f"**Selected Model**: {selected_model}")
-st.write(f"**Description**: {descriptions[selected_model]}")
+
 
 
 
