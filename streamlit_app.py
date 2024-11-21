@@ -295,4 +295,27 @@ with st.sidebar.expander("Select Model (Click to Expand/Collapse)"):
         format_func=lambda x: f"{x} - {descriptions[x]}"  # Add caption directly to model name
     )
 
+import streamlit as st
+
+# Descriptions for each model
+descriptions = {
+    "GPT-4o": "High-performance for complex tasks",
+    "GPT-4o mini": "Faster, lightweight GPT-4o version",
+    "GPT-4": "Deep understanding and creativity",
+    "GPT-4 32K": "Handles large context and documents",
+    "GPT-3.5 Turbo": "Fast for simple tasks",
+    "GPT-3.5 Turbo 16K": "Extended context handling variant",
+    "o1-preview": "Advanced, broad world knowledge model",
+    "o1-mini": "Faster, cost-effective reasoning model"
+}
+
+# Create a dropdown (selectbox)
+selected_option = st.selectbox(
+    "Select a Model",
+    options=list(descriptions.keys()),  # List of model names
+    format_func=lambda x: f"{x}: {descriptions[x]}"  # Display model name and description together in the dropdown
+)
+
+# Display the description for the selected option below the dropdown
+st.write(f"**{selected_option}:** {descriptions[selected_option]}")
 
