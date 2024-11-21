@@ -351,7 +351,22 @@ with st.sidebar:
 
 
 
+import streamlit as st
 
+help_txt = '''This is a line
+And this follows a line break'''
+st.markdown(help_txt)
+
+bytes_help_txt = bytes(help_txt, 'utf-8')
+st.markdown(bytes_help_txt)
+
+new_line = '''
+'''
+
+mod_help_txt = help_txt.replace(new_line,'  '+new_line)
+st.markdown(mod_help_txt)
+
+st.number_input('label',0,10,0,1, help=mod_help_txt)
 
 
 
