@@ -407,7 +407,7 @@ with st.sidebar:
     mod_help_txt = help_txt.replace(new_line, '  ' + new_line)  # Adds extra spaces before line breaks
 
     # Create a selectbox with the reduced model list and help content
-    selected_model = st.selectbox("Select a Model", mod
+    selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
 
 
 
