@@ -310,7 +310,32 @@ with st.sidebar:
         help=help_content  # Display all descriptions in the help tooltip
     )
 
+import streamlit as st
 
+# Define the model options and descriptions
+models = [
+    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", 
+    "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
+]
+
+descriptions = {
+    "GPT-4o": "High-performance for complex tasks.",
+    "GPT-4": "Deep understanding and creativity for diverse tasks.",
+    "GPT-3.5 Turbo": "Fast for simpler tasks with good performance.",
+    "o1-preview": "Advanced, broad world knowledge model for general reasoning.",
+}
+
+# Create the help tooltip by concatenating all descriptions, ensuring each is on a new line
+help_content = "\n".join([f"**{model}:** {descriptions[model]}" for model in models])
+
+# Move the selectbox and description display to the sidebar
+with st.sidebar:
+    # Use the `st.selectbox` widget with the concatenated help content
+    selected_model = st.selectbox(
+        "Select a Model",
+        models,
+        help=help_content  # Display all descriptions in the help tooltip
+    )
 
 
 
