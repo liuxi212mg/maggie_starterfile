@@ -301,38 +301,36 @@ descriptions = {
     "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
-# Function to create a custom dropdown with tooltips
+# Create a custom dropdown with tooltips using HTML and CSS
 def custom_dropdown_with_tooltips():
-    # HTML for the custom dropdown
     options_html = ""
+    
+    # Create the options for the custom dropdown with tooltips for each option
     for model in models:
-        # Each option in the dropdown will have a tooltip with the description
-        options_html += f"""
-        <div class="dropdown-option" title="{descriptions[model]}">
+        options_html += f'''
+        <div class="dropdown-option" title="{descriptions[model]}" style="padding: 8px; cursor: pointer; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px;">
             {model}
         </div>
-        """
+        '''
     
-    # Display the custom dropdown in Streamlit using raw HTML
-    st.markdown(f"""
-    <div class="dropdown-container">
-        <label for="model">Select a Model:</label>
-        <select id="model" name="model">
-            {options_html}
-        </select>
+    # Inject custom HTML for the dropdown and tooltips into the sidebar
+    st.sidebar.markdown(f"""
+    <div style="display: flex; flex-direction: column;">
+        <label style="margin-bottom: 10px;">Select a Model:</label>
+        {options_html}
     </div>
     """, unsafe_allow_html=True)
 
-# Display custom dropdown with tooltips
+# Show the custom dropdown with tooltips in the sidebar
 custom_dropdown_with_tooltips()
 
-# Allow model selection with selectbox for actual use
+# Allow model selection using a native Streamlit selectbox in the sidebar for actual usage
 selected_model = st.sidebar.selectbox(
-    "Select a Model",
+    "Choose your model from the dropdown:",
     models
 )
 
-# Display the description of the selected model in the sidebar
+# Show the description of the selected model in the sidebar
 st.sidebar.write(f"**Selected Model**: {selected_model}")
 st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
 
