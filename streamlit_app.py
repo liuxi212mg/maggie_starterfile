@@ -279,7 +279,11 @@ selected_model = st.sidebar.selectbox(
     models
 )
 
-
+selected_model = st.selectbox(
+    "Select a Model",
+    models,
+    help=descriptions  # This help shows for the whole dropdown widget
+)
 
 
 
