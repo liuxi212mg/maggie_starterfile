@@ -282,8 +282,6 @@ selected_model = st.sidebar.selectbox(
     models
 )
 
-# Display the selected model in the main content area
-st.write(f"You selected the model: **{selected_model}**")
 
 
 
