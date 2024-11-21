@@ -353,20 +353,30 @@ with st.sidebar:
 
 import streamlit as st
 
+# Original help text with line breaks
 help_txt = '''This is a line
 And this follows a line break'''
-st.markdown(help_txt)
 
-bytes_help_txt = bytes(help_txt, 'utf-8')
-st.markdown(bytes_help_txt)
+# Place everything inside the sidebar
+with st.sidebar:
+    # Display the original help text using st.markdown
+    st.markdown(help_txt)
 
-new_line = '''
-'''
+    # No need to convert to bytes, just use the string
+    # Displaying the bytes converted help text (although this won't render markdown correctly)
+    bytes_help_txt = bytes(help_txt, 'utf-8')
+    st.markdown(bytes_help_txt)
 
-mod_help_txt = help_txt.replace(new_line,'  '+new_line)
-st.markdown(mod_help_txt)
+    # Adjust the help text by replacing line breaks with a formatted version
+    new_line = '\n'
+    mod_help_txt = help_txt.replace(new_line, '  ' + new_line)  # Adds extra spaces before line breaks
 
-st.number_input('label',0,10,0,1, help=mod_help_txt)
+    # Display the modified help text
+    st.markdown(mod_help_txt)
+
+    # Create a number input with the modified help text as the tooltip
+    st.number_input('Label', 0, 10, 0, 1, help=mod_help_txt)
+
 
 
 
