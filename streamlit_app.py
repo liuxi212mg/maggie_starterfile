@@ -313,15 +313,6 @@ def show_tooltips_for_models():
 # Show the tooltips in the sidebar
 show_tooltips_for_models()
 
-# Now allow model selection using the radio button in the sidebar
-selected_model = st.sidebar.radio(
-    "Select a Model",
-    models
-)
-
-# Show description for the selected model
-st.sidebar.write(f"**Selected Model**: {selected_model}")
-st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
 
 
 
