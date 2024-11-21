@@ -301,17 +301,41 @@ descriptions = {
     "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
-# Function to display hoverable tooltips for each model description
-def show_tooltips_for_models():
+# Function to create a custom dropdown with tooltips
+def custom_dropdown_with_tooltips():
+    # HTML for the custom dropdown
+    options_html = ""
     for model in models:
-        # Display model name with a tooltip
-        st.sidebar.markdown(
-            f'<span title="{descriptions[model]}" style="color: blue; cursor: pointer;">{model}</span>',
-            unsafe_allow_html=True
-        )
+        # Each option in the dropdown will have a tooltip with the description
+        options_html += f"""
+        <div class="dropdown-option" title="{descriptions[model]}">
+            {model}
+        </div>
+        """
+    
+    # Display the custom dropdown in Streamlit using raw HTML
+    st.markdown(f"""
+    <div class="dropdown-container">
+        <label for="model">Select a Model:</label>
+        <select id="model" name="model">
+            {options_html}
+        </select>
+    </div>
+    """, unsafe_allow_html=True)
 
-# Show the tooltips in the sidebar
-show_tooltips_for_models()
+# Display custom dropdown with tooltips
+custom_dropdown_with_tooltips()
+
+# Allow model selection with selectbox for actual use
+selected_model = st.sidebar.selectbox(
+    "Select a Model",
+    models
+)
+
+# Display the description of the selected model in the sidebar
+st.sidebar.write(f"**Selected Model**: {selected_model}")
+st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
+
 
 
 
