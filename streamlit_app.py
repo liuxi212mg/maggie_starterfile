@@ -408,6 +408,7 @@ with st.sidebar:
 
     # Create a selectbox with the reduced model list and help content
     selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
+    st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> to view full description of more language models.</p>', unsafe_allow_html=True)
 
 
 
