@@ -359,8 +359,6 @@ And this follows a line break'''
 
 # Place everything inside the sidebar
 with st.sidebar:
-    # Display the original help text using st.markdown
-    st.markdown(help_txt)
 
     # No need to convert to bytes, just use the string
     # Displaying the bytes converted help text (although this won't render markdown correctly)
