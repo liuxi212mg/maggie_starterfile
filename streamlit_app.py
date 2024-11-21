@@ -279,60 +279,6 @@ selected_model = st.sidebar.selectbox(
     models
 )
 
-import streamlit as st
-
-# Sidebar header for model selection
-st.sidebar.header("Choose a Language Model")
-
-# Define the model options and descriptions
-models = [
-    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", 
-    "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
-]
-
-descriptions = {
-    "GPT-4o": "High-performance for complex tasks.",
-    "GPT-4o mini": "Faster, lightweight GPT-4o version for quicker responses.",
-    "GPT-4": "Deep understanding and creativity for diverse tasks.",
-    "GPT-4 32K": "Handles large context and documents (32K token limit).",
-    "GPT-3.5 Turbo": "Fast for simpler tasks with good performance.",
-    "GPT-3.5 Turbo 16K": "Extended context handling variant (16K token limit).",
-    "o1-preview": "Advanced, broad world knowledge model for general reasoning.",
-    "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
-}
-
-# Create a custom dropdown with tooltips using HTML and CSS
-def custom_dropdown_with_tooltips():
-    options_html = ""
-    
-    # Create the options for the custom dropdown with tooltips for each option
-    for model in models:
-        options_html += f'''
-        <div class="dropdown-option" title="{descriptions[model]}" style="padding: 8px; cursor: pointer; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px;">
-            {model}
-        </div>
-        '''
-    
-    # Inject custom HTML for the dropdown and tooltips into the sidebar
-    st.sidebar.markdown(f"""
-    <div style="display: flex; flex-direction: column;">
-        <label style="margin-bottom: 10px;">Select a Model:</label>
-        {options_html}
-    </div>
-    """, unsafe_allow_html=True)
-
-# Show the custom dropdown with tooltips in the sidebar
-custom_dropdown_with_tooltips()
-
-# Allow model selection using a native Streamlit selectbox in the sidebar for actual usage
-selected_model = st.sidebar.selectbox(
-    "Choose your model from the dropdown:",
-    models
-)
-
-# Show the description of the selected model in the sidebar
-st.sidebar.write(f"**Selected Model**: {selected_model}")
-st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
 
 
 
