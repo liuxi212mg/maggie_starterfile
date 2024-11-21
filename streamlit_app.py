@@ -382,6 +382,32 @@ with st.sidebar:
     # Create a selectbox with the expanded help content
     selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
 
+import streamlit as st
+
+# Reduced help text with only base model descriptions and bold model names
+help_txt = '''**GPT-4o**: High-performance for complex tasks.
+**GPT-4**: Deep understanding and creativity for diverse tasks.
+**GPT-3.5 Turbo**: Fast for simpler tasks with good performance.
+**o1-preview**: Advanced, broad world knowledge model for general reasoning.'''
+
+# List of base models for the selectbox
+models = [
+    "GPT-4o", "GPT-4", "GPT-3.5 Turbo", "o1-preview"
+]
+
+# Place everything inside the sidebar
+with st.sidebar:
+
+    # No need to convert to bytes, just use the string
+    # Displaying the bytes converted help text (although this won't render markdown correctly)
+    bytes_help_txt = bytes(help_txt, 'utf-8')
+
+    # Adjust the help text by replacing line breaks with a formatted version
+    new_line = '\n'
+    mod_help_txt = help_txt.replace(new_line, '  ' + new_line)  # Adds extra spaces before line breaks
+
+    # Create a selectbox with the reduced model list and help content
+    selected_model = st.selectbox("Select a Model", mod
 
 
 
