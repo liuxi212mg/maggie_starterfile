@@ -346,7 +346,7 @@ with st.sidebar:
     selected_model = st.selectbox(
         "Select a Model",
         models,
-        help="Visit the <a href='https://your-faq-link.com' target='_blank'>FAQs</a> to view a full description of more language models.",  # Display the link in the help tooltip
+        help="Visit the FAQs to view a full description of more language models.",  # Display the link in the help tooltip
     )
 
 
