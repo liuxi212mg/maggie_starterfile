@@ -314,8 +314,8 @@ import streamlit as st
 
 # Define the model options and descriptions
 models = [
-    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", 
-    "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
+    "GPT-4o", "GPT-4",
+    "GPT-3.5 Turbo", "o1-preview"
 ]
 
 descriptions = {
