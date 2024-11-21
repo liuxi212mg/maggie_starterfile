@@ -301,32 +301,29 @@ descriptions = {
     "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
-# Create a dictionary to keep track of the selected model
+# Function to display hoverable tooltips for each model description
+def show_tooltips_for_models():
+    for model in models:
+        # Display model name with a tooltip
+        st.sidebar.markdown(
+            f'<span title="{descriptions[model]}" style="color: blue; cursor: pointer;">{model}</span>',
+            unsafe_allow_html=True
+        )
+
+# Show the tooltips in the sidebar
+show_tooltips_for_models()
+
+# Now allow model selection using the radio button in the sidebar
 selected_model = st.sidebar.radio(
     "Select a Model",
-    models,
-    help="Select a model to get its description."
+    models
 )
 
-# Display selected model description in the sidebar
+# Show description for the selected model
 st.sidebar.write(f"**Selected Model**: {selected_model}")
 st.sidebar.write(f"**Description**: {descriptions[selected_model]}")
 
-# Function to create a clickable button for each model with a tooltip-like effect
-def show_model_buttons_with_tooltips():
-    for model in models:
-        button_html = f"""
-        <button onclick="document.getElementById('selected-model').innerHTML = '{model}'" 
-                style="width: 100%; padding: 10px; text-align: left; margin-bottom: 5px; 
-                background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px;">
-            {model}
-        </button>
-        <span style="visibility: hidden;" title="{descriptions[model]}"></span>
-        """
-        st.sidebar.markdown(button_html, unsafe_allow_html=True)
 
-# Show the clickable model buttons with descriptions as tooltips
-show_model_buttons_with_tooltips()
 
 
 
