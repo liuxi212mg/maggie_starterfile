@@ -353,14 +353,14 @@ with st.sidebar:
 
 import streamlit as st
 
-# Expanded help text with more model descriptions
-help_txt = '''GPT-4o: High-performance for complex tasks.
-GPT-4: Deep understanding and creativity for diverse tasks.
-GPT-4 32K: Handles large context and documents (32K token limit).
-GPT-3.5 Turbo: Fast for simpler tasks with good performance.
-GPT-3.5 Turbo 16K: Extended context handling variant (16K token limit).
-o1-preview: Advanced, broad world knowledge model for general reasoning.
-o1-mini: Faster, cost-effective reasoning model for simpler tasks.'''
+# Expanded help text with bold model names and more descriptions
+help_txt = '''**GPT-4o**: High-performance for complex tasks.
+**GPT-4**: Deep understanding and creativity for diverse tasks.
+**GPT-4 32K**: Handles large context and documents (32K token limit).
+**GPT-3.5 Turbo**: Fast for simpler tasks with good performance.
+**GPT-3.5 Turbo 16K**: Extended context handling variant (16K token limit).
+**o1-preview**: Advanced, broad world knowledge model for general reasoning.
+**o1-mini**: Faster, cost-effective reasoning model for simpler tasks.'''
 
 # List of models for the selectbox
 models = [
@@ -381,6 +381,7 @@ with st.sidebar:
 
     # Create a selectbox with the expanded help content
     selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
+
 
 
 
