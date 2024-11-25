@@ -355,6 +355,7 @@ import streamlit as st
 
 # Expanded help text with bold model names and more descriptions
 help_txt = '''- **GPT-4o**: High-performance for complex tasks.
+GPT-4o mini: variant of 4o, faster response with lower resources used.
 - **GPT-4**: Deep understanding and creativity for diverse tasks.
 GPT-4 32K: Handles large context and documents (32K token limit).
 - **GPT-3.5 Turbo**: Fast for simpler tasks with good performance.
@@ -364,7 +365,7 @@ o1-mini: Faster, cost-effective reasoning model for simpler tasks.'''
 
 # List of models for the selectbox
 models = [
-    "GPT-4o", "GPT-4", "GPT-4 32K", "GPT-3.5 Turbo", 
+    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", "GPT-3.5 Turbo", 
     "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
 ]
 
