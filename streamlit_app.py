@@ -253,19 +253,19 @@ st.sidebar.header("Choose a Language Model")
 
 # Define the model options and descriptions
 models = [
-    "GPT-4o", "GPT-4o mini", "GPT-4", "GPT-4 32K", 
-    "GPT-3.5 Turbo", "GPT-3.5 Turbo 16K", "o1-preview", "o1-mini"
+    "GPT-4o", "- GPT-4o mini", "GPT-4", "- GPT-4 32K", 
+    "GPT-3.5 Turbo", "- GPT-3.5 Turbo 16K", "o1-preview", "- o1-mini"
 ]
 
 descriptions = {
     "GPT-4o": "High-performance for complex tasks.",
-    "GPT-4o mini": "Faster, lightweight GPT-4o version for quicker responses.",
+    "- GPT-4o mini": "Faster, lightweight GPT-4o version for quicker responses.",
     "GPT-4": "Deep understanding and creativity for diverse tasks.",
-    "GPT-4 32K": "Handles large context and documents (32K token limit).",
+    "- GPT-4 32K": "Handles large context and documents (32K token limit).",
     "GPT-3.5 Turbo": "Fast for simpler tasks with good performance.",
-    "GPT-3.5 Turbo 16K": "Extended context handling variant (16K token limit).",
+    "- GPT-3.5 Turbo 16K": "Extended context handling variant (16K token limit).",
     "o1-preview": "Advanced, broad world knowledge model for general reasoning.",
-    "o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
+    "- o1-mini": "Faster, cost-effective reasoning model for simpler tasks."
 }
 
 # Create an expander to hold the model descriptions
