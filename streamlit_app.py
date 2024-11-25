@@ -385,15 +385,22 @@ with st.sidebar:
 
 import streamlit as st
 
-# Reduced help text with only base model descriptions and bold model names
+# Updated help text with a divider between the models and variants
 help_txt = '''**GPT-4o (Recommended)**: High accuracy for complex, multi-step tasks.
-**GPT-4**: Excels in creative and technical writing tasks.
-**GPT-3.5 Turbo**: Fast for simpler tasks with good performance.
-**o1-preview**: Advanced reasoning model with broad world knowledge.'''
+**GPT-4**: Ideal for creative and technical writing.
+**GPT-3.5 Turbo**: Fast and efficient for simple tasks.
+**o1-preview**: Advanced reasoning model with broad world knowledge.
 
-# List of base models for the selectbox
+---  # Divider
+
+**Mini variant**: Faster and more cost-effective.
+**16K & 32K variants**: Enhanced context handling.'''
+
+# List of base models for the selectbox, with a divider between models and variants
 models = [
-    "GPT-4o", "GPT-4", "GPT-3.5 Turbo", "o1-preview"
+    "GPT-4o", "GPT-4", "GPT-3.5 Turbo", "o1-preview",
+    "---",  # Divider for the selectbox
+    "Mini variant", "16K variant", "32K variant"
 ]
 
 # Place everything inside the sidebar
@@ -410,6 +417,7 @@ with st.sidebar:
     # Create a selectbox with the reduced model list and help content
     selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
     st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> to view full description of more language models.</p>', unsafe_allow_html=True)
+
 
 
 
