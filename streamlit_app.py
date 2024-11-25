@@ -354,7 +354,7 @@ with st.sidebar:
 import streamlit as st
 
 # Expanded help text with bold model names and more descriptions
-help_txt = '''- **GPT-4o**: High accuracy for complex, multi-step tasks.
+help_txt = '''- **GPT-4o (Recommended)**: High accuracy for complex, multi-step tasks.
 GPT-4o mini: variant of 4o, faster response with lower resources used.
 - **GPT-4**: Excels in creative and technical writing tasks.
 GPT-4 32K: Handles large context and documents.
