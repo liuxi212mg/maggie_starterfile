@@ -354,14 +354,14 @@ with st.sidebar:
 import streamlit as st
 
 # Expanded help text with bold model names and more descriptions
-help_txt = '''- **GPT-4o**: High-performance for complex tasks.
+help_txt = '''- **GPT-4o**: High accuracy for complex, multi-step tasks.
 GPT-4o mini: variant of 4o, faster response with lower resources used.
-- **GPT-4**: Deep understanding and creativity for diverse tasks.
-GPT-4 32K: Handles large context and documents (32K token limit).
+- **GPT-4**: Excels in creative and technical writing tasks.
+GPT-4 32K: Handles large context and documents.
 - **GPT-3.5 Turbo**: Fast for simpler tasks with good performance.
-GPT-3.5 Turbo 16K: Extended context handling variant (16K token limit).
-- **o1-preview**: Advanced, broad world knowledge model for general reasoning.
-o1-mini: Faster, cost-effective reasoning model for simpler tasks.'''
+GPT-3.5 Turbo 16K: Extended context handling variant.
+- **o1-preview**: Advanced reasoning model with broad world knowledge.
+o1-mini: Faster reasoning model for simpler tasks.'''
 
 # List of models for the selectbox
 models = [
