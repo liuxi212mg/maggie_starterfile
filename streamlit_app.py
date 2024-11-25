@@ -390,17 +390,13 @@ help_txt = '''**GPT-4o (Recommended)**: High accuracy for complex, multi-step ta
 **GPT-4**: Ideal for creative and technical writing.
 **GPT-3.5 Turbo**: Fast and efficient for simple tasks.
 **o1-preview**: Advanced reasoning model with broad world knowledge.
-
----  # Divider
-
+____________________________________
 **Mini variant**: Faster and more cost-effective.
 **16K & 32K variants**: Enhanced context handling.'''
 
 # List of base models for the selectbox, with a divider between models and variants
 models = [
-    "GPT-4o", "GPT-4", "GPT-3.5 Turbo", "o1-preview",
-    "---",  # Divider for the selectbox
-    "Mini variant", "16K variant", "32K variant"
+    "GPT-4o", "GPT-4", "GPT-3.5 Turbo", "o1-preview"
 ]
 
 # Place everything inside the sidebar
