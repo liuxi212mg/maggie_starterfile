@@ -386,10 +386,10 @@ with st.sidebar:
 import streamlit as st
 
 # Reduced help text with only base model descriptions and bold model names
-help_txt = '''**GPT-4o**: High-performance for complex tasks.
-**GPT-4**: Deep understanding and creativity for diverse tasks.
+help_txt = '''**GPT-4o (Recommended)**: High accuracy for complex, multi-step tasks.
+**GPT-4**: Excels in creative and technical writing tasks.
 **GPT-3.5 Turbo**: Fast for simpler tasks with good performance.
-**o1-preview**: Advanced, broad world knowledge model for general reasoning.'''
+**o1-preview**: Advanced reasoning model with broad world knowledge.'''
 
 # List of base models for the selectbox
 models = [
