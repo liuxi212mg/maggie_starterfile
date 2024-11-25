@@ -391,8 +391,7 @@ help_txt = '''**GPT-4o (Default)**: High accuracy for complex tasks.
 **GPT-3.5 Turbo**: Fast for simple tasks.
 **o1-preview**: Advanced reasoning model with broad world knowledge.
 ⎯⎯⎯⎯⎯⎯
-**Mini variant**: Faster and lower costs.
-**16K & 32K variants**: Enhanced context handling.'''
+Mini variants have faster and lower costs. 16K & 32K variants have enhanced context handling.'''
 
 # List of base models for the selectbox, with a divider between models and variants
 models = [
