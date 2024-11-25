@@ -390,7 +390,6 @@ help_txt = '''**GPT-4o (Recommended)**: High accuracy for complex, multi-step ta
 **GPT-4**: Ideal for creative and technical writing.
 **GPT-3.5 Turbo**: Fast and efficient for simple tasks.
 **o1-preview**: Advanced reasoning model with broad world knowledge.
-____________________________________
 **Mini variant**: Faster and more cost-effective.
 **16K & 32K variants**: Enhanced context handling.'''
 
