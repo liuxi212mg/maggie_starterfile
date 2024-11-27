@@ -402,7 +402,7 @@ with st.sidebar:
     mod_help_txt = help_txt.replace(new_line, '  ' + new_line)  # Adds extra spaces before line breaks
 
     selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
-    st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> to view full description of more language models.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> for a full description of language models</p>', unsafe_allow_html=True)
 
 
 
