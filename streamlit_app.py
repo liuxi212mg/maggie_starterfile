@@ -388,7 +388,7 @@ import streamlit as st
 help_txt = '''**GPT-4o (Default)**: High accuracy for complex tasks
 **GPT-4**: Ideal for creative and technical writing
 **GPT-3.5 Turbo**: Fast for simple tasks
-**o1-preview**: Ideal for problem-solving across domains
+**o1-preview**: Ideal for complex problem in science, coding, math and similar field
 Mini variants are faster and have lower costs. 16K & 32K variants are better at large context handling.'''
 
 models = [
@@ -402,7 +402,7 @@ with st.sidebar:
     mod_help_txt = help_txt.replace(new_line, '  ' + new_line)  # Adds extra spaces before line breaks
 
     selected_model = st.selectbox("Select a Model", models, help=mod_help_txt)
-    st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> for a full description of language models</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size: 12px;">Visit the <a href="https://your-faq-link.com">FAQs</a> for a full description of language models.</p>', unsafe_allow_html=True)
 
 
 
