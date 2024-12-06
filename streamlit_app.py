@@ -295,7 +295,6 @@ if st.button("Download Results (Simulated)"):
     st.write("Download action triggered!")
 
 import streamlit as st
-from streamlit_lottie import st_lottie
 
 # Inject CSS for inline alignment
 st.markdown(
@@ -324,7 +323,7 @@ options = ["North", "East", "South", "West"]
 
 # Render the label and pills separately but inline
 st.markdown(
-    f"""
+    """
     <div class="inline-container">
         <span class="inline-label">Directions:</span>
     </div>
