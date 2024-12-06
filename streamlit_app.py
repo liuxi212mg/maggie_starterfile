@@ -199,7 +199,7 @@ st.markdown(
         padding: 8px 16px !important;
         border-radius: 5px !important;
         font-family: 'Sources Sans Pros', sans-serif;
-        font-size: 16px !important;
+        font-size: 14px !important;
         display: inline-block; /* Align inline with title */
         margin-left: 20px; /* Space between title and button */
         cursor: pointer;
@@ -280,10 +280,6 @@ def custom_dataframe(df):
 
 # Display styled DataFrame
 st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
-
-# Simulated Download Button (functional button)
-if st.button("Download Results (Simulated)"):
-    st.write("Download action triggered!")
 
 
 
