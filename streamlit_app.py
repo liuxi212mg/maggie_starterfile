@@ -198,7 +198,7 @@ st.markdown(
         border: none !important;
         padding: 8px 16px !important;
         border-radius: 5px !important;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Sources Sans Pros', sans-serif;
         font-size: 16px !important;
         display: inline-block; /* Align inline with title */
         margin-left: 20px; /* Space between title and button */
