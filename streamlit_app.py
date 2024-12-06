@@ -294,6 +294,50 @@ st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
 if st.button("Download Results (Simulated)"):
     st.write("Download action triggered!")
 
+import streamlit as st
+
+# Inject custom CSS for styling
+st.markdown(
+    """
+    <style>
+    .pills-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Add spacing between text and pills */
+    }
+
+    .pills-label {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #262730;
+        margin: 0;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Pills options
+options = ["North", "East", "South", "West"]
+selection = st.pills("Directions", options, selection_mode="multi")
+
+# Render the "Direction" text and pills inline
+st.markdown(
+    f"""
+    <div class="pills-container">
+        <span class="pills-label">Directions:</span>
+        <div>
+            {selection}
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Display selected options
+st.markdown(f"Your selected options: {selection}.")
+
 
 
 
