@@ -175,6 +175,43 @@ options = st.multiselect(
 st.write("You selected:", options)
 
 
+import streamlit as st
+import pandas as pd
+
+# Title or Header
+st.title("Results")
+
+# Subheader for Prompt Title Section
+st.subheader("Prompt Title(s):")
+
+# Radio buttons for selecting a prompt
+prompt_choice = st.radio("", ["Major Product Difference", "Generate Summary"], horizontal=True)
+
+# Results Table Section
+st.write("### Results")
+
+# Example data for the table
+data = {
+    "File": ["AI Builder Prompting Guide"],
+    "Answer": ["placeholderplaceholder"]
+}
+
+# Convert data to a Pandas DataFrame
+df = pd.DataFrame(data)
+
+# Display table
+st.table(df)
+
+# Download button
+st.download_button(
+    label="Download Generated Results",
+    data="Generated Results Content Here",  # Replace with your generated content
+    file_name="results.txt",
+    mime="text/plain"
+)
+
+# Add space for further user actions or processing
+st.markdown("**Additional actions can be added below as needed.**")
 
 
 
