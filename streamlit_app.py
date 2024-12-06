@@ -258,23 +258,6 @@ st.markdown(
 options = ["Major Product Difference", "Generate Summary"]
 selection = st.pills("Directions", options, selection_mode="single",label_visibility="hidden")
 
-# Create and display the DataFrame
-data = {
-    "File": ["AI Builder Prompting Guide"],
-    "Answer": ["placeholderplaceholder"]
-}
-df = pd.DataFrame(data)
-
-# Generate the HTML for the DataFrame with custom styles
-df_html = df.style.set_table_styles(
-    [
-        {"selector": "thead th", "props": [("font-family", "Montserrat"), ("font-size", "16px"), ("color", "#8A8A8A"), ("font-weight", "bold"), ("text-align", "left")]},
-        {"selector": "tbody td", "props": [("font-family", "Montserrat"), ("font-size", "14px"), ("color", "#606060"), ("text-align", "left"), ("padding", "8px")]},
-    ]
-).hide_index().to_html()
-
-# Render the custom-styled DataFrame
-st.markdown(df_html, unsafe_allow_html=True)
 
 
 
