@@ -259,6 +259,25 @@ options = ["Major Product Difference", "Generate Summary"]
 selection = st.pills("Directions", options, selection_mode="single",label_visibility="hidden")
 
 
+import streamlit as st
+import pandas as pd
+
+# Create a DataFrame with the provided data
+data = {
+    "Combined File": [
+        "AI Builder Prompting Guide",
+        "OTPP Auditor Invoices and Revenue by Country"
+    ],
+    "Answer": [
+        "The document provides a summary of invoices issued to Deloitte LLP in 2023, specifically detailing two invoices. The date difference between the invoices is approximately two and a half months, with the first invoice dated July 7, 2023, and the second on September 27, 2023. The major product difference between the two invoices lies in the services provided: the first invoice pertains to a financial audit with a base amount of 175,000, while the second includes financial audit of 175,000, with the second includes additional financial 175,000 and additional services related to goodwill impairment and acquisitions totaling 35,000. The first invoice, provided in connection with the various services, totaled 187,000, with the second totaling 186,964. The second invoice is 150,664, the second one $85,535. James Minneapolis is responsible for providing the services for both invoices, and there is no indication of a change in responsibility over time. The currency for both invoices is USD. The services provided differ in that the first invoice is solely for a financial audit, whereas the second includes additional services related to goodwill impairment and acquisitions. The document also includes placeholders labeled 'Select One,' which appear to be irrelevant or incomplete entries. The total base invoice amount for the year-to-date is 262,000, with additional totals bringing the total to 262,000, with additional totals bringing the total to 29,521."
+    ]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Display the table in Streamlit
+st.table(df)
 
 
 
