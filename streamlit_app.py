@@ -161,7 +161,8 @@ if prompt := st.chat_input("What is up?"):
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
 
-
+options = ["Major Product Difference", "Generate Summary"]
+selection = st.pills("Directions", options, selection_mode="multi")
 
 
 
