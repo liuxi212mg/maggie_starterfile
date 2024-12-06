@@ -295,18 +295,19 @@ if st.button("Download Results (Simulated)"):
     st.write("Download action triggered!")
 
 import streamlit as st
+from streamlit_lottie import st_lottie
 
-# Inject custom CSS for styling
+# Inject CSS for inline alignment
 st.markdown(
     """
     <style>
-    .pills-container {
+    .inline-container {
         display: flex;
         align-items: center;
-        gap: 10px; /* Add spacing between text and pills */
+        gap: 10px; /* Adjust spacing between label and pills */
     }
 
-    .pills-label {
+    .inline-label {
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 16px;
         font-weight: normal;
@@ -320,23 +321,23 @@ st.markdown(
 
 # Pills options
 options = ["North", "East", "South", "West"]
-selection = st.pills("Directions", options, selection_mode="multi")
 
-# Render the "Direction" text and pills inline
+# Render the label and pills separately but inline
 st.markdown(
     f"""
-    <div class="pills-container">
-        <span class="pills-label">Directions:</span>
-        <div>
-            {selection}
-        </div>
+    <div class="inline-container">
+        <span class="inline-label">Directions:</span>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-# Display selected options
+# Use the Streamlit pills as a standalone element
+selection = st.pills("", options, selection_mode="multi")
+
+# Display the selection
 st.markdown(f"Your selected options: {selection}.")
+
 
 
 
