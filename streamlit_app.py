@@ -198,7 +198,7 @@ st.markdown(
         border: none !important;
         padding: 8px 16px !important;
         border-radius: 5px !important;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 16px !important;
         display: inline-block; /* Align inline with title */
         margin-left: 20px; /* Space between title and button */
@@ -253,10 +253,18 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Prompt Titles and radio buttons on the same line
+st.markdown(
+    """
+    <div class="prompt-container">
+        <span class="prompt-titles">Prompt Title(s):</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Radio buttons for selecting a prompt, aligned horizontally
-options = ["Major Product Difference", "Generate Summary"]
-selection = st.pills("Prompt Title(s)", options, selection_mode="single", label_visibility="invisible")
+prompt_choice = st.radio("", ["Major Product Difference", "Generate Summary"], horizontal=True)
 
 # Customized DataFrame
 data = {
@@ -280,6 +288,11 @@ def custom_dataframe(df):
 
 # Display styled DataFrame
 st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
+
+# Simulated Download Button (functional button)
+if st.button("Download Results (Simulated)"):
+    st.write("Download action triggered!")
+
 
 
 
