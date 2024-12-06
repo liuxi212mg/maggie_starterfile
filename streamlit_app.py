@@ -178,40 +178,103 @@ st.write("You selected:", options)
 import streamlit as st
 import pandas as pd
 
-# Title or Header
-st.title("Results")
+# Inject custom CSS for styles
+st.markdown(
+    """
+    <style>
+    /* Title styling */
+    .title-style {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #262730;
+    }
 
-# Subheader for Prompt Title Section
+    /* DataFrame header styling */
+    .dataframe-header {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #8A8A8A;
+        text-align: left;
+    }
+
+    /* Table cell styling */
+    .dataframe-cell {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        color: #606060;
+        text-align: left;
+    }
+
+    /* Download button styling */
+    .download-button {
+        background-color: #606060 !important;
+        color: white !important;
+        border: none !important;
+        padding: 8px 16px !important;
+        border-radius: 5px !important;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+
+    /* Centering the download button */
+    .center-button {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Title with custom style
+st.markdown('<div class="title-style">Results</div>', unsafe_allow_html=True)
+
+# Subheader for Prompt Titles Section
 st.subheader("Prompt Title(s):")
 
 # Radio buttons for selecting a prompt
 prompt_choice = st.radio("", ["Major Product Difference", "Generate Summary"], horizontal=True)
 
-# Results Table Section
-st.write("### Results")
-
-# Example data for the table
+# Customized DataFrame
 data = {
     "File": ["AI Builder Prompting Guide"],
     "Answer": ["placeholderplaceholder"]
 }
 
-# Convert data to a Pandas DataFrame
+# Convert data to DataFrame
 df = pd.DataFrame(data)
 
-# Display table
-st.table(df)
+# Use Streamlit's DataFrame with styling
+def custom_dataframe(df):
+    """Apply custom styles to a Pandas DataFrame."""
+    styled_table = df.style.set_table_styles(
+        [
+            {"selector": "thead th", "props": [("font-family", "Montserrat"), ("font-size", "16px"), ("color", "#8A8A8A"), ("font-weight", "bold"), ("text-align", "left")]},
+            {"selector": "td", "props": [("font-family", "Montserrat"), ("font-size", "14px"), ("color", "#606060"), ("text-align", "left")]},
+        ]
+    )
+    return styled_table
 
-# Download button
-st.download_button(
-    label="Download Generated Results",
-    data="Generated Results Content Here",  # Replace with your generated content
-    file_name="results.txt",
-    mime="text/plain"
+# Display styled DataFrame
+st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
+
+# Download Button with custom styling
+st.markdown(
+    """
+    <div class="center-button">
+        <button class="download-button">Download Generated Results</button>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
-# Add space for further user actions or processing
-st.markdown("**Additional actions can be added below as needed.**")
+# Simulating download functionality (you may integrate actual Streamlit button for functionality)
+if st.button("Download Results (Simulated)"):
+    st.write("Download action triggered!")
+
 
 
 
