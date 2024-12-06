@@ -264,7 +264,7 @@ st.markdown(
 )
 
 # Radio buttons for selecting a prompt, aligned horizontally
-prompt_choice = st.radio("", ["Major Product Difference", "Generate Summary"], horizontal=True)
+prompt_choice = st.pills("", ["Major Product Difference", "Generate Summary"], horizontal=True)
 
 # Customized DataFrame
 data = {
