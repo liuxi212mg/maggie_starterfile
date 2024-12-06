@@ -188,6 +188,43 @@ st.markdown(
         font-size: 24px;
         font-weight: bold;
         color: #262730;
+        display: inline-block; /* Allow inline placement */
+    }
+
+    /* Prompt Titles styling */
+    .prompt-titles {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #262730;
+        display: inline-block;
+        margin-right: 10px; /* Space between text and radio buttons */
+    }
+
+    /* Radio button container */
+    .radio-container {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /* Download button styling */
+    .download-button {
+        background-color: #606060 !important;
+        color: white !important;
+        border: none !important;
+        padding: 8px 16px !important;
+        border-radius: 5px !important;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        display: inline-block; /* Align inline with title */
+        margin-left: 20px; /* Space between title and button */
+    }
+
+    /* Results section */
+    .results-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     /* DataFrame header styling */
@@ -206,37 +243,37 @@ st.markdown(
         color: #606060;
         text-align: left;
     }
-
-    /* Download button styling */
-    .download-button {
-        background-color: #606060 !important;
-        color: white !important;
-        border: none !important;
-        padding: 8px 16px !important;
-        border-radius: 5px !important;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
-    }
-
-    /* Centering the download button */
-    .center-button {
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 10px;
-    }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Title with custom style
-st.markdown('<div class="title-style">Results</div>', unsafe_allow_html=True)
+# Results title with Download button on the same line
+st.markdown(
+    """
+    <div class="results-section">
+        <div class="title-style">Results</div>
+        <button class="download-button">Download Generated Results</button>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-# Subheader for Prompt Titles Section
-st.subheader("Prompt Title(s):")
+# Prompt Titles and radio buttons on the same line
+st.markdown(
+    """
+    <div>
+        <span class="prompt-titles">Prompt Title(s):</span>
+        <div class="radio-container">
+    """,
+    unsafe_allow_html=True,
+)
 
 # Radio buttons for selecting a prompt
 prompt_choice = st.radio("", ["Major Product Difference", "Generate Summary"], horizontal=True)
+
+# Close the radio container
+st.markdown("</div>", unsafe_allow_html=True)
 
 # Customized DataFrame
 data = {
@@ -261,17 +298,7 @@ def custom_dataframe(df):
 # Display styled DataFrame
 st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
 
-# Download Button with custom styling
-st.markdown(
-    """
-    <div class="center-button">
-        <button class="download-button">Download Generated Results</button>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Simulating download functionality (you may integrate actual Streamlit button for functionality)
+# Simulated Download Button (functional button)
 if st.button("Download Results (Simulated)"):
     st.write("Download action triggered!")
 
