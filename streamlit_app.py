@@ -281,52 +281,7 @@ def custom_dataframe(df):
 # Display styled DataFrame
 st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
 
-# Simulated Download Button (functional button)
-if st.button("Download Results (Simulated)"):
-    st.write("Download action triggered!")
 
-import streamlit as st
-
-# Inject CSS for inline alignment
-st.markdown(
-    """
-    <style>
-    .inline-container {
-        display: flex;
-        align-items: center;
-        gap: 10px; /* Adjust spacing between label and pills */
-    }
-
-    .inline-label {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-        color: #262730;
-        margin: 0;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Pills options
-options = ["North", "East", "South", "West"]
-
-# Render the label and pills separately but inline
-st.markdown(
-    """
-    <div class="inline-container">
-        <span class="inline-label">Directions:</span>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Use the Streamlit pills as a standalone element
-selection = st.pills("", options, selection_mode="multi")
-
-# Display the selection
-st.markdown(f"Your selected options: {selection}.")
 
 
 
