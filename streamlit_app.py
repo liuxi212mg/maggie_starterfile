@@ -259,24 +259,6 @@ options = ["Major Product Difference", "Generate Summary"]
 selection = st.pills("Directions", options, selection_mode="single",label_visibility="hidden")
 
 
-import streamlit as st
-import pandas as pd
-
-# Create a DataFrame with the provided data
-data = {
-    "Combined File": [
-        "AI Builder Prompting Guide",
-        "OTPP Auditor Invoices and Revenue by Country"
-    ],
-    "Answer": [
-       "1"
-}
-
-# Create a DataFrame
-df = pd.DataFrame(data)
-
-# Display the table in Streamlit
-st.table(df)
 
 
 
