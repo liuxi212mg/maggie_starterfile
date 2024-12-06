@@ -191,22 +191,6 @@ st.markdown(
         display: inline-block; /* Allow inline placement */
     }
 
-    /* Prompt Titles styling */
-    .prompt-titles {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-        color: #262730;
-        display: inline-block;
-        margin-right: 10px; /* Space between text and radio buttons */
-    }
-
-    /* Radio button container */
-    .radio-container {
-        display: inline-block;
-        vertical-align: middle;
-    }
-
     /* Download button styling */
     .download-button {
         background-color: #606060 !important;
@@ -215,16 +199,26 @@ st.markdown(
         padding: 8px 16px !important;
         border-radius: 5px !important;
         font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
+        font-size: 16px !important;
         display: inline-block; /* Align inline with title */
         margin-left: 20px; /* Space between title and button */
+        cursor: pointer;
     }
 
-    /* Results section */
-    .results-section {
+    /* Align "Prompt Titles" and radio buttons */
+    .prompt-container {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        margin-bottom: 10px; /* Space below the container */
+    }
+
+    /* Prompt Titles styling */
+    .prompt-titles {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #262730;
+        margin-right: 10px; /* Space between text and radio buttons */
     }
 
     /* DataFrame header styling */
@@ -251,7 +245,7 @@ st.markdown(
 # Results title with Download button on the same line
 st.markdown(
     """
-    <div class="results-section">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
         <div class="title-style">Results</div>
         <button class="download-button">Download Generated Results</button>
     </div>
@@ -262,18 +256,15 @@ st.markdown(
 # Prompt Titles and radio buttons on the same line
 st.markdown(
     """
-    <div>
+    <div class="prompt-container">
         <span class="prompt-titles">Prompt Title(s):</span>
-        <div class="radio-container">
+    </div>
     """,
     unsafe_allow_html=True,
 )
 
-# Radio buttons for selecting a prompt
+# Radio buttons for selecting a prompt, aligned horizontally
 prompt_choice = st.radio("", ["Major Product Difference", "Generate Summary"], horizontal=True)
-
-# Close the radio container
-st.markdown("</div>", unsafe_allow_html=True)
 
 # Customized DataFrame
 data = {
@@ -301,6 +292,7 @@ st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
 # Simulated Download Button (functional button)
 if st.button("Download Results (Simulated)"):
     st.write("Download action triggered!")
+
 
 
 
