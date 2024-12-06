@@ -253,15 +253,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Prompt Titles and radio buttons on the same line
-st.markdown(
-    """
-    <div class="prompt-container">
-        <span class="prompt-titles">Prompt Title(s):</span>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
 
 # Radio buttons for selecting a prompt, aligned horizontally
 options = ["Major Product Difference", "Generate Summary"]
