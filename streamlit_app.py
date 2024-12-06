@@ -258,28 +258,23 @@ st.markdown(
 options = ["Major Product Difference", "Generate Summary"]
 selection = st.pills("Directions", options, selection_mode="single",label_visibility="hidden")
 
-# Customized DataFrame
+# Create and display the DataFrame
 data = {
     "File": ["AI Builder Prompting Guide"],
     "Answer": ["placeholderplaceholder"]
 }
-
-# Convert data to DataFrame
 df = pd.DataFrame(data)
 
-# Use Streamlit's DataFrame with styling
-def custom_dataframe(df):
-    """Apply custom styles to a Pandas DataFrame."""
-    styled_table = df.style.set_table_styles(
-        [
-            {"selector": "thead th", "props": [("font-family", "Montserrat"), ("font-size", "16px"), ("color", "#8A8A8A"), ("font-weight", "bold"), ("text-align", "left")]},
-            {"selector": "td", "props": [("font-family", "Montserrat"), ("font-size", "14px"), ("color", "#606060"), ("text-align", "left")]},
-        ]
-    )
-    return styled_table
+# Generate the HTML for the DataFrame with custom styles
+df_html = df.style.set_table_styles(
+    [
+        {"selector": "thead th", "props": [("font-family", "Montserrat"), ("font-size", "16px"), ("color", "#8A8A8A"), ("font-weight", "bold"), ("text-align", "left")]},
+        {"selector": "tbody td", "props": [("font-family", "Montserrat"), ("font-size", "14px"), ("color", "#606060"), ("text-align", "left"), ("padding", "8px")]},
+    ]
+).hide_index().to_html()
 
-# Display styled DataFrame
-st.write(custom_dataframe(df).to_html(), unsafe_allow_html=True)
+# Render the custom-styled DataFrame
+st.markdown(df_html, unsafe_allow_html=True)
 
 
 
