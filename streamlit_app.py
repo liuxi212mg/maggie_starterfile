@@ -54,6 +54,24 @@ def response_generator():
 st.title("OTPP Secured Chatbot")
 st.text ("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
+init_prompt = st.selectbox(
+    'You might want to try these prompts...',
+    ['<Click Me to Expand>',
+     'How to socialize?',
+     'How to focus on tasks?',
+     'How to find peace in daily work?']
+)
+
+instr = 'Hi there! Enter what you want to let me know here.'
+if prompt := st.text_input(
+        instr,
+        value=init_prompt,
+        placeholder=instr,  # Instruct the user to enter sth
+        label_visibility='collapsed'  # Hide the label
+):
+    # Get the ChatGPT response and put it on the screen (this is auto-triggered
+    # whenever the user chooses something from the dropdown, which is unwanted)
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
