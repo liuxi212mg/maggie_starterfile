@@ -106,6 +106,7 @@ if prompt := st.chat_input("What is up?"):
     sentiment_mapping = [":material/thumb_down:", ":material/thumb_up:"]
     selected = st.feedback("thumbs")
     if selected is not None:
+        st.markdown(f"You selected: {sentiment_mapping[selected]}")
         st.caption("Thank you for your feedback!")
         
 
