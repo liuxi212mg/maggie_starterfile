@@ -54,31 +54,6 @@ def response_generator():
 st.title("OTPP Secured Chatbot")
 st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
-# Display pills (tags) above the input field
-pill_labels = [
-    "🖥️ Can you help me debug my code?", 
-    "📝 I want to summarize a document.", 
-    "💡 I want some inspiration"
-]
-
-# Create pills and handle their interactions
-selected_pills = st.pills(
-    label="Choose an option:",
-    options=pill_labels,
-    selection_mode="single",  
-    label_visibility="hidden"
-)
-
-# Respond based on the selected pill
-if selected_pills:
-    if selected_pills == pill_labels[0]:
-        st.session_state.messages.append({"role": "assistant", "content": "What code do you need help with?"})
-    elif selected_pills == pill_labels[1]:
-        st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
-    elif selected_pills == pill_labels[2]:
-        st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
-
-
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -101,6 +76,31 @@ if prompt := st.chat_input("What is up?"):
         response = st.write_stream(response_generator())
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+
+# Display pills (tags) below the input field
+pill_labels = [
+    "🖥️ Can you help me debug my code?", 
+    "📝 I want to summarize a document.", 
+    "💡 I want some inspiration"
+]
+
+# Create pills and handle their interactions below the input field
+selected_pills = st.pills(
+    label="Choose an option:",
+    options=pill_labels,
+    selection_mode="single",  
+    label_visibility="hidden"
+)
+
+# Respond based on the selected pill
+if selected_pills:
+    if selected_pills == pill_labels[0]:
+        st.session_state.messages.append({"role": "assistant", "content": "What code do you need help with?"})
+    elif selected_pills == pill_labels[1]:
+        st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
+    elif selected_pills == pill_labels[2]:
+        st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
+
 
 
 
