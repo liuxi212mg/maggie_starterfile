@@ -37,7 +37,6 @@ import streamlit as st
 import random
 import time
 
-
 # Streamed response emulator
 def response_generator():
     response = random.choice(
@@ -51,22 +50,40 @@ def response_generator():
         yield word + " "
         time.sleep(0.05)
 
-
+# Title and introductory text
 st.title("OTPP Secured Chatbot")
 st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
-# Display buttons above the input field
-button_labels = ["Can you help me debug my code?", "I want to summarize a document.", "I want some inspiration", "FAQ", "Contact Us"]
+# Display pills (tags) above the input field
+pill_labels = [
+    "Can you help me debug my code?", 
+    "I want to summarize a document.", 
+    "I want some inspiration", 
+    "FAQ", 
+    "Contact Us"
+]
 
-# Create buttons and handle their interactions
-if st.pills(button_labels[0]):
+# Create pills and handle their interactions
+selected_pills = st.pills(
+    label="Choose an option:",
+    options=pill_labels,
+    selection_mode="single",  # Can select only one pill at a time
+)
+
+# Respond based on the selected pill
+if selected_pills:
+    if selected_pills == pill_labels[0]:
         st.session_state.messages.append({"role": "assistant", "content": "What code do you need help with?"})
-if st.pills(button_labels[1]):
+    elif selected_pills == pill_labels[1]:
         st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
-if st.pills(button_labels[2]):
+    elif selected_pills == pill_labels[2]:
         st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
+    elif selected_pills == pill_labels[3]:
+        st.session_state.messages.append({"role": "assistant", "content": "Feel free to ask any questions from the FAQ!"})
+    elif selected_pills == pill_labels[4]:
+        st.session_state.messages.append({"role": "assistant", "content": "Please contact us through our support page for assistance."})
 
-# Initialize chat history
+# Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -88,6 +105,7 @@ if prompt := st.chat_input("What is up?"):
         response = st.write_stream(response_generator())
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+
 
 
 
