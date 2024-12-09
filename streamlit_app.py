@@ -79,6 +79,70 @@ if prompt := st.chat_input("What is up?"):
 
 
 
+import streamlit as st
+
+# Title and description
+st.title("OTPP Secured Chatbot")
+st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
+
+# Define possible prompts to try out
+init_prompt = st.selectbox(
+    'You might want to try these prompts...',
+    ['<Click Me to Expand>',
+     'How to socialize?',
+     'How to focus on tasks?',
+     'How to find peace in daily work?']
+)
+
+# Initialize chat history if not already in session state
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# Function to generate chatbot responses (this is a placeholder for now)
+def response_generator(user_input):
+    return f"Assistant says: '{user_input}'"
+
+# Create a form with a submit button
+with st.form(key="chat_form"):
+    instr = 'Hi there! Enter what you want to let me know here.'
+    
+    # If init_prompt is not selected, disable the text input field
+    is_disabled = init_prompt == '<Click Me to Expand>'
+    
+    user_input = st.text_input(
+        instr,
+        value=init_prompt if not is_disabled else "",  # Set the initial value based on dropdown selection
+        placeholder=instr,  # Instruction for the user to enter something
+        label_visibility='collapsed',  # Hide label
+        disabled=is_disabled  # Disable input box if no prompt is selected
+    )
+    
+    # Submit button
+    submit_button = st.form_submit_button(label='Submit')
+
+# Trigger actions only when the form is submitted
+if submit_button and user_input:
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    
+    # Display user message in chat message container
+    with st.chat_message("user"):
+        st.markdown(user_input)
+
+    # Generate assistant response
+    response = response_generator(user_input)
+
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
+
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
 
 
 
