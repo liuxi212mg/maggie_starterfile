@@ -52,6 +52,7 @@ def response_generator():
 
 
 st.title("OTPP Chatbot")
+st.text ("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
 # Initialize chat history
 if "messages" not in st.session_state:
