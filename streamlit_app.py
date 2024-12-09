@@ -53,6 +53,7 @@ def response_generator():
 # Title and introductory text
 st.title("OTPP Secured Chatbot")
 st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
+st.caption("This is a string that explains something above.")
 
 # Display pills (tags) above the input field
 pill_labels = [
