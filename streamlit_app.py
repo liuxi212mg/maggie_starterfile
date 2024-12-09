@@ -56,19 +56,19 @@ st.title("OTPP Secured Chatbot")
 st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
 # Display buttons above the input field
-button_labels = ["Help", "Support", "Security", "FAQ", "Contact Us"]
+button_labels = ["Can you help me debug my code?", "I want to summarize a document.", "I want some inspiration", "FAQ", "Contact Us"]
 col1, col2, col3 = st.columns(3)  # Create 3 columns for button layout
 
 # Create buttons and handle their interactions
 with col1:
-    if st.button(button_labels[0]):
-        st.session_state.messages.append({"role": "assistant", "content": "How can I help you with security?"})
+    if st.pills(button_labels[0]):
+        st.session_state.messages.append({"role": "assistant", "content": "What code do you need help with?"})
 with col2:
-    if st.button(button_labels[1]):
-        st.session_state.messages.append({"role": "assistant", "content": "Let me assist you with support."})
+    if st.pills(button_labels[1]):
+        st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
 with col3:
-    if st.button(button_labels[2]):
-        st.session_state.messages.append({"role": "assistant", "content": "What security concerns do you have?"})
+    if st.pills(button_labels[2]):
+        st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
 
 # Initialize chat history
 if "messages" not in st.session_state:
