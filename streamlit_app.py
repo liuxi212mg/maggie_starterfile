@@ -61,6 +61,24 @@ pill_labels = [
     "💡 I want some inspiration"
 ]
 
+# Add custom styling for pills using HTML and CSS
+pill_html = """
+<div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+    <span style="padding: 10px 20px; background-color: #4CAF50; color: white; border-radius: 20px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+        🖥️ Can you help me debug my code?
+    </span>
+    <span style="padding: 10px 20px; background-color: #2196F3; color: white; border-radius: 20px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+        📝 I want to summarize a document.
+    </span>
+    <span style="padding: 10px 20px; background-color: #FFC107; color: white; border-radius: 20px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+        💡 I want some inspiration
+    </span>
+</div>
+"""
+
+# Display pills with custom styling
+st.markdown(pill_html, unsafe_allow_html=True)
+
 # Create pills and handle their interactions
 selected_pills = st.pills(
     label="Choose an option:",
@@ -77,7 +95,6 @@ if selected_pills:
         st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
     elif selected_pills == pill_labels[2]:
         st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
-
 
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
@@ -101,6 +118,7 @@ if prompt := st.chat_input("What is up?"):
         response = st.write_stream(response_generator())
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+
 
 
 
