@@ -56,9 +56,9 @@ st.text("Address users’ questions through conversational interaction, ensuring
 
 # Display pills (tags) above the input field
 pill_labels = [
-    "Can you help me debug my code?", 
-    "I want to summarize a document.", 
-    "I want some inspiration"
+    "🖥️ Can you help me debug my code?", 
+    "📝 I want to summarize a document.", 
+    "💡 I want some inspiration"
 ]
 
 # Create pills and handle their interactions
