@@ -108,20 +108,21 @@ with st.form(key="chat_form"):
         label_visibility='collapsed',  # Hide label
     )
     
-    # Define prompt suggestions dropdown (this will be below the text input)
-    init_prompt = st.selectbox(
-        'You might want to try these prompts...',
-        ['<Click Me to Expand>',
-         'How to socialize?',
-         'How to focus on tasks?',
-         'How to find peace in daily work?']
-    )
+    # Define quick suggestion pills (buttons)
+    suggestion_pills = [
+        'How to socialize?',
+        'How to focus on tasks?',
+        'How to find peace in daily work?'
+    ]
     
-    # If the initial prompt is selected, fill the text input with that prompt
-    if init_prompt != '<Click Me to Expand>':
-        user_input = init_prompt
+    # Display the pills below the text input field
+    selected_suggestion = None
+    for suggestion in suggestion_pills:
+        if st.button(suggestion):
+            selected_suggestion = suggestion
+            user_input = suggestion  # Auto-fill the user input with the selected suggestion
 
-    # Submit button
+    # Submit button for the form
     submit_button = st.form_submit_button(label='Submit')
 
 # Trigger actions only when the form is submitted
@@ -140,8 +141,8 @@ if submit_button and user_input:
     st.session_state.messages.append({"role": "assistant", "content": response})
 
     # Display assistant response in chat message container
-    with st.chat_message("assistant"):
-        st.markdown(response)
+    with st.chat_message("assistant
+
 
 
 
