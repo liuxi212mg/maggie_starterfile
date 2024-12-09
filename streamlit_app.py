@@ -58,9 +58,7 @@ st.text("Address users’ questions through conversational interaction, ensuring
 pill_labels = [
     "Can you help me debug my code?", 
     "I want to summarize a document.", 
-    "I want some inspiration", 
-    "FAQ", 
-    "Contact Us"
+    "I want some inspiration"
 ]
 
 # Create pills and handle their interactions
@@ -78,10 +76,7 @@ if selected_pills:
         st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
     elif selected_pills == pill_labels[2]:
         st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
-    elif selected_pills == pill_labels[3]:
-        st.session_state.messages.append({"role": "assistant", "content": "Feel free to ask any questions from the FAQ!"})
-    elif selected_pills == pill_labels[4]:
-        st.session_state.messages.append({"role": "assistant", "content": "Please contact us through our support page for assistance."})
+
 
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
