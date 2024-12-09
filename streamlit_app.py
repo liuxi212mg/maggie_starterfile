@@ -65,7 +65,8 @@ pill_labels = [
 selected_pills = st.pills(
     label="Choose an option:",
     options=pill_labels,
-    selection_mode="single",  # Can select only one pill at a time
+    selection_mode="single",  
+    label_visibility="hidden"
 )
 
 # Respond based on the selected pill
