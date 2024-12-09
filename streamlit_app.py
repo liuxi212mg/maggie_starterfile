@@ -101,8 +101,12 @@ if prompt := st.chat_input("What is up?"):
         response = st.write_stream(response_generator())
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
-
-
+    
+    # Show feedback options (thumbs up/thumbs down)
+    sentiment_mapping = [":material/thumb_down:", ":material/thumb_up:"]
+    selected = st.feedback("thumbs")
+    if selected is not None:
+        st.markdown(f"You selected: {sentiment_mapping[selected]}")
 
 
 
