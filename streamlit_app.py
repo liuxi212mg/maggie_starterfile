@@ -51,11 +51,13 @@ def response_generator():
         time.sleep(0.05)
 
 
-st.title("OTPP Secured Chatbot")
-st.text ("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
-
 import streamlit as st
 
+# Title and description
+st.title("OTPP Secured Chatbot")
+st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
+
+# Define possible prompts to try out
 init_prompt = st.selectbox(
     'You might want to try these prompts...',
     ['<Click Me to Expand>',
@@ -64,9 +66,7 @@ init_prompt = st.selectbox(
      'How to find peace in daily work?']
 )
 
-st.text_input('Enter you text', init_prompt)
-
-# Initialize chat history
+# Initialize chat history if not already in session state
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -75,19 +75,34 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# Accept user input
-if prompt := st.chat_input("What is up?"):
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
+# Function to generate chatbot responses
+def response_generator(user_input):
+    # Placeholder function for generating assistant response
+    # You can integrate with an API like OpenAI's GPT here
+    return f"Assistant says: '{user_input}'"
 
-    # Display assistant response in chat message container
-    with st.chat_message("assistant"):
-        response = st.write_stream(response_generator())
+# Handle predefined prompt suggestion auto-populating chat_input
+# If user selects a prompt from the dropdown, update the input field automatically
+user_input = st.text_input('Enter your text:', value=init_prompt)
+
+# Accept user input (use st.chat_input for chat-style input box)
+if user_input:
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    
+    # Display user message
+    with st.chat_message("user"):
+        st.markdown(user_input)
+
+    # Generate assistant response
+    response = response_generator(user_input)
+
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+    
+    # Display assistant response
+    with st.chat_message("assistant"):
+        st.markdown(response)
 
 
 
