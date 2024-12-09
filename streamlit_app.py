@@ -34,12 +34,27 @@ with st.sidebar:
 
 
 import streamlit as st
+import random
+import time
 
-# Title and description
-st.title("OTPP Secured Chatbot")
-st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
-# Initialize chat history if not already in session state
+# Streamed response emulator
+def response_generator():
+    response = random.choice(
+        [
+            "Hello there! How can I assist you today?",
+            "Hi, human! Is there anything I can help you with?",
+            "Do you need help?",
+        ]
+    )
+    for word in response.split():
+        yield word + " "
+        time.sleep(0.05)
+
+
+st.title("Simple chat")
+
+# Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -48,57 +63,19 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# Function to generate chatbot responses (this is a placeholder for now)
-def response_generator(user_input):
-    return f"Assistant says: '{user_input}'"
-
-# Create a form with a submit button
-with st.form(key="chat_form"):
-    instr = 'Hi there! Enter what you want to let me know here.'
-    
-    # Handle dynamic enabling/disabling of input based on prompt selection
-    user_input = st.text_input(
-        instr,
-        placeholder=instr,  # Instruction for the user to enter something
-        label_visibility='collapsed',  # Hide label
-    )
-    
-    # Define quick suggestion pills (buttons)
-    suggestion_pills = [
-        'How to socialize?',
-        'How to focus on tasks?',
-        'How to find peace in daily work?'
-    ]
-    
-    # Display the pills below the text input field
-    selected_suggestion = None
-    for suggestion in suggestion_pills:
-        if st.button(suggestion):
-            selected_suggestion = suggestion
-            user_input = suggestion  # Auto-fill the user input with the selected suggestion
-
-    # Submit button for the form
-    submit_button = st.form_submit_button(label='Submit')
-
-# Trigger actions only when the form is submitted
-if submit_button and user_input:
+# Accept user input
+if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    
+    st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
     with st.chat_message("user"):
-        st.markdown(user_input)
-
-    # Generate assistant response
-    response = response_generator(user_input)
-
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response})
+        st.markdown(prompt)
 
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
-        st.markdown(response)
-
+        response = st.write_stream(response_generator())
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
 
 
 
