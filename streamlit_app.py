@@ -78,21 +78,11 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "assistant", "content": response})
 
 
-
 import streamlit as st
 
 # Title and description
 st.title("OTPP Secured Chatbot")
 st.text("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
-
-# Define possible prompts to try out
-init_prompt = st.selectbox(
-    'You might want to try these prompts...',
-    ['<Click Me to Expand>',
-     'How to socialize?',
-     'How to focus on tasks?',
-     'How to find peace in daily work?']
-)
 
 # Initialize chat history if not already in session state
 if "messages" not in st.session_state:
@@ -111,17 +101,26 @@ def response_generator(user_input):
 with st.form(key="chat_form"):
     instr = 'Hi there! Enter what you want to let me know here.'
     
-    # If init_prompt is not selected, disable the text input field
-    is_disabled = init_prompt == '<Click Me to Expand>'
-    
+    # Handle dynamic enabling/disabling of input based on prompt selection
     user_input = st.text_input(
         instr,
-        value=init_prompt if not is_disabled else "",  # Set the initial value based on dropdown selection
         placeholder=instr,  # Instruction for the user to enter something
         label_visibility='collapsed',  # Hide label
-        disabled=is_disabled  # Disable input box if no prompt is selected
     )
     
+    # Define prompt suggestions dropdown (this will be below the text input)
+    init_prompt = st.selectbox(
+        'You might want to try these prompts...',
+        ['<Click Me to Expand>',
+         'How to socialize?',
+         'How to focus on tasks?',
+         'How to find peace in daily work?']
+    )
+    
+    # If the initial prompt is selected, fill the text input with that prompt
+    if init_prompt != '<Click Me to Expand>':
+        user_input = init_prompt
+
     # Submit button
     submit_button = st.form_submit_button(label='Submit')
 
@@ -143,6 +142,7 @@ if submit_button and user_input:
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
+
 
 
 
