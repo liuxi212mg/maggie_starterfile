@@ -51,7 +51,7 @@ def response_generator():
         time.sleep(0.05)
 
 
-st.title("OTPP Chatbot")
+st.title("OTPP Secured Chatbot")
 st.text ("Address users’ questions through conversational interaction, ensuring secure management of confidential data.")
 
 # Initialize chat history
