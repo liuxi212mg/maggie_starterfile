@@ -57,17 +57,13 @@ st.text("Address users’ questions through conversational interaction, ensuring
 
 # Display buttons above the input field
 button_labels = ["Can you help me debug my code?", "I want to summarize a document.", "I want some inspiration", "FAQ", "Contact Us"]
-col1, col2, col3 = st.columns(3)  # Create 3 columns for button layout
 
 # Create buttons and handle their interactions
-with col1:
-    if st.pills(button_labels[0]):
+if st.pills(button_labels[0]):
         st.session_state.messages.append({"role": "assistant", "content": "What code do you need help with?"})
-with col2:
-    if st.pills(button_labels[1]):
+if st.pills(button_labels[1]):
         st.session_state.messages.append({"role": "assistant", "content": "Of course. Please enter the text you want me to summarize."})
-with col3:
-    if st.pills(button_labels[2]):
+if st.pills(button_labels[2]):
         st.session_state.messages.append({"role": "assistant", "content": "What areas do you need inspiration in?"})
 
 # Initialize chat history
