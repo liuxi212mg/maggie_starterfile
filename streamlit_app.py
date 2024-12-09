@@ -141,7 +141,9 @@ if submit_button and user_input:
     st.session_state.messages.append({"role": "assistant", "content": response})
 
     # Display assistant response in chat message container
-    with st.chat_message("assistant
+    with st.chat_message("assistant"):
+        st.markdown(response)
+
 
 
 
