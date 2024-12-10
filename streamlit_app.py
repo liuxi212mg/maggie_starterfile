@@ -110,7 +110,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(f"You selected: {sentiment_mapping[selected]}")
         st.caption("Thank you for your feedback!")
         
-
+st.write_stream("Hello, this is OTPP chatbot. How can I help you today?")
 
 
 
